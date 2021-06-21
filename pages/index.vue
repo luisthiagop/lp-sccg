@@ -39,11 +39,16 @@
               </section>
             </div>
           </div>
-          <div class="">
+          <div class="col-6">
             <div>
               <form class="formulario">
                 <div class="form_bg">
                   <p class="tituloForm">Consulte as condições</p>
+                  <section class="digiteValor">
+                    <p class="labelValor">Digite um valor para simular:</p>
+                    <span> R$ </span>
+                    <input id="valor" placeholder="1000,00" type="number" />
+                  </section>
                   <b-form-group
                     id="input-group"
                     label="Nome:"
@@ -65,18 +70,11 @@
                   >
                     <b-form-input id="input3" required></b-form-input>
                   </b-form-group>
-                  <b-form-group
-                    id="input-group"
-                    label="Valor desejado:"
-                    label-for="input-2"
-                  >
-                    <b-form-input id="input4" required></b-form-input>
-                  </b-form-group>
+                  <b-form-checkbox id="checkbox-1" name="checkbox-1">
+                    Sim, aceito receber emails, mensagens e ligações da empresa.
+                  </b-form-checkbox>
+                  <div class="wrapper-button"><b-button>Enviar</b-button></div>
                 </div>
-                <b-form-checkbox id="checkbox-1" name="checkbox-1">
-                  Sim, aceito receber emails, mensagens e ligações da empresa.
-                </b-form-checkbox>
-                <div class="wrapper-button"><b-button>Enviar</b-button></div>
               </form>
             </div>
           </div>
@@ -120,8 +118,11 @@ export default {}
   background: url(@/static/images/background.svg) no-repeat fixed center top;
   background-size: 100%;
 }
+.container {
+  min-height: calc(100vh - 90px);
+}
 .ladoEsquerdo {
-  margin: 100px 0 0 0;
+  margin: 20vh 0 0 0;
   font-family: 'Barlow', sans-serif;
   color: #001f0d;
 }
@@ -171,18 +172,25 @@ svg {
 }
 .formulario {
   width: 505px;
-  height: 474px;
-  margin: 50px 0 110px 35px;
-}
-.form_bg {
-  width: 505px;
-  height: 372px;
-  padding: 30px;
+  height: 494px;
+  margin: 10vh 0 0 0;
+  padding: 15px 30px;
   background-color: #f1f0f0;
   border-radius: 12px;
   font-family: 'Barlow', sans-serif;
   font-weight: 500;
+  line-height: normal;
   color: #343a40;
+  -webkit-box-shadow: -4px 4px 15px -6px #707070;
+  box-shadow: -4px 4px 15px -6px #707070;
+}
+.tituloForm {
+  color: #00823b;
+  height: 30px;
+  font-size: 32px;
+  text-align: center;
+  margin-bottom: 30px;
+  line-height: normal;
 }
 form div p {
   font-size: 24px;
@@ -193,8 +201,27 @@ form div p {
 .input-group {
   font-size: 18px;
 }
+#valor {
+  font-size: 24px;
+  background: none;
+  border: none;
+  margin-bottom: 15px;
+  width: 200px;
+  color: #343a40;
+}
+span {
+  font-size: 24px;
+  color: #00823b;
+}
+.labelValor {
+  margin-bottom: 5px;
+  font-size: 18px;
+  font-family: 'Barlow', sans-serif;
+  font-weight: 500;
+  color: #343a40;
+}
 .form-control {
-  height: 35px;
+  height: 30px;
 }
 .form-group {
   height: 54px;
@@ -204,7 +231,7 @@ form div p {
   margin-bottom: 5px;
 }
 .custom-control.custom-checkbox {
-  margin: 15px 30px 0 30px;
+  margin-top: 30px;
 }
 .custom-control-input {
   width: 13px;
@@ -227,7 +254,7 @@ form div p {
   line-height: 20px;
   width: 150px;
   height: 45px;
-  margin-top: 30px;
+  margin: 15px 0;
 }
 .btn-secondary {
   border: 0;
