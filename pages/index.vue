@@ -10,7 +10,7 @@
     <div class="quadrado">
       <div class="container">
         <div class="row">
-          <div class="col-6">
+          <div class="col-sx-12 col-sm-12 col-md-6 col-lg-6 col-xg-6">
             <div class="ladoEsquerdo">
               <div class="logo">
                 <img
@@ -39,9 +39,14 @@
               </section>
             </div>
           </div>
-          <div class="col-6">
-            <div>
-              <form class="formulario">
+          <div
+            class="
+              col-sx-12 col-sm-12 col-md-12 col-lg-6 col-xg-6
+              mb-lg-5 mb-md-5 mb-sm-5 mb-sx-5
+            "
+          >
+            <div class="row">
+              <form class="formulario col-sm-10">
                 <div class="form_bg">
                   <p class="tituloForm">Consulte as condições</p>
                   <section class="digiteValor">
