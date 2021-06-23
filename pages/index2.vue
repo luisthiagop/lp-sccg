@@ -24,46 +24,85 @@
               <p class="labelValor">Digite um valor para simular:</p>
               <div class="inputValor">
                 <span> R$ </span>
-                <money v-bind="money" id="valor" v-model="price"></money>
+                <money
+                  v-bind="money"
+                  id="valor"
+                  v-model="formData.valor"
+                ></money>
               </div>
               <div class="btnsAdicionar">
-                <button class="adicionar">+ 100,00</button>
-                <button class="adicionar">+ 500,00</button>
-                <button class="adicionar">+ 1000,00</button>
+                <button class="adicionar" @click="formData.valor += 100">
+                  + 100,00
+                </button>
+                <button class="adicionar" @click="formData.valor += 500">
+                  + 500,00
+                </button>
+                <button class="adicionar" @click="formData.valor += 1000">
+                  + 1000,00
+                </button>
               </div>
               <b-form-group id="input-group" label="Nome:" label-for="input-2">
-                <b-form-input id="input" required></b-form-input>
+                <b-form-input
+                  id="input"
+                  v-model="formData.nome"
+                  required
+                ></b-form-input>
               </b-form-group>
               <b-form-group id="input-group" label="Email:" label-for="input-2">
-                <b-form-input id="input2" required></b-form-input>
+                <b-form-input
+                  id="input2"
+                  v-model="formData.email"
+                  required
+                ></b-form-input>
               </b-form-group>
               <b-form-group
                 id="input-group"
                 label="Telefone:"
                 label-for="input-2"
               >
-                <b-form-input id="input3" required></b-form-input>
+                <b-form-input
+                  id="input3"
+                  v-model="formData.whatsapp"
+                  required
+                ></b-form-input>
               </b-form-group>
-              <b-form-checkbox id="checkbox-1" name="checkbox-1" size="sm">
+              <b-form-checkbox
+                id="checkbox-1"
+                v-model="permiteContato"
+                name="checkbox-1"
+                size="sm"
+              >
                 Sim, aceito receber emails, mensagens e ligações da empresa.
               </b-form-checkbox>
-              <div class="wrapper-button"><b-button>Enviar</b-button></div>
+              <div class="wrapper-button">
+                <b-button :disabled="!permiteContato" @click="sendData"
+                  >Enviar</b-button
+                >
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
+    {{ formData }}
   </div>
 </template>
 
 <script>
 import { Money } from 'v-money'
+import axios from 'axios'
 export default {
   components: { Money },
 
   data() {
     return {
-      price: 123.45,
+      permiteContato: true,
+      formData: {
+        valor: 5000,
+        nome: '',
+        email: '',
+        whatsapp: '',
+      },
       money: {
         decimal: ',',
         thousands: '.',
@@ -71,6 +110,15 @@ export default {
         masked: false,
       },
     }
+  },
+  methods: {
+    async sendData() {
+      const res = await axios.post(
+        'http://localhost:8000/wp-json/api/lead',
+        this.formData
+      )
+      console.log(res)
+    },
   },
 }
 </script>
