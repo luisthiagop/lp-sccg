@@ -84,6 +84,7 @@
         </div>
       </div>
     </div>
+    <footer><p>2021 Copyrigth</p></footer>
   </div>
 </template>
 
@@ -203,11 +204,11 @@ export default {
   margin-right: 20%;
   background-color: #f1f0f0;
   border-radius: 12px;
+  box-shadow: rgb(191, 194, 190) -4px 4px 15px -6px;
 }
 h2 {
   font-size: 36px;
   font-weight: 500;
-  text-align: center;
   color: #00823b;
 }
 span {
@@ -232,7 +233,8 @@ span {
   -moz-box-shadow: none;
   box-shadow: none;
   text-align: right;
-  width: 150px;
+  min-width: 150px;
+  max-width: 225px;
 }
 #valor:focus-visible {
   outline: none !important;
@@ -247,13 +249,19 @@ span {
   border: none;
   background-color: #fff;
   color: #6c757d;
+  font-size: 18px;
   font-weight: 400;
   width: 100px;
   padding: 10px !important;
   border-radius: 4px;
   margin: 0 0 15px 10px;
 }
-label,
+label {
+  color: #343a40;
+  font-size: 18px;
+  font-weight: 500;
+  margin-bottom: 5px;
+}
 .labelValor {
   color: #343a40;
   font-size: 18px;
