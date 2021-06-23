@@ -8,11 +8,11 @@
               <img src="@/static/images/SimulaCred.svg" alt="Logo SimulaCred" />
             </div>
             <p class="subtitulo mt-4">Crédito rápido e fácil.</p>
-            <p class="legenda mt-4 col-8 px-0">
+            <p class="legenda mt-4 col-lg-8 col-md-8 px-0">
               Com a nossa empresa, fazer um empréstimo é muito simples. Contamos
               com métodos que facilitam esse processo.
             </p>
-            <p class="chamada col-8 px-0">
+            <p class="chamada col-lg-8 col-md-8 px-0">
               Simule em nossa ferramenta as condições de crédito
             </p>
           </div>
@@ -150,6 +150,18 @@ export default {
   .conteudo-coluna2 {
     margin-top: 3vh !important;
   }
+  .logo {
+    text-align: center !important;
+  }
+  .subtitulo {
+    text-align: center !important;
+  }
+  .legenda {
+    text-align: center !important;
+  }
+  .chamada {
+    text-align: center !important;
+  }
 }
 .fundo {
   background: url(@/static/images/background.svg) no-repeat fixed;
@@ -166,7 +178,6 @@ export default {
   margin-right: 20%;
 }
 .logo {
-  width: 272px;
   height: 40px;
 }
 .subtitulo {
@@ -194,26 +205,26 @@ export default {
   border-radius: 12px;
 }
 h2 {
-  font-size: 32px;
+  font-size: 36px;
   font-weight: 500;
   text-align: center;
   color: #00823b;
 }
 span {
-  font-size: 18px;
+  font-size: 36px;
   font-weight: 500;
   color: #6c757d;
 }
 .inputValor {
   display: flex;
   flex-direction: row;
-  justify-content: right;
+  justify-content: center;
   width: 100%;
 }
 #valor {
   color: #343a40;
   font-weight: 500;
-  font-size: 18px;
+  font-size: 36px;
   border: none;
   background-image: none;
   background-color: transparent;
@@ -221,7 +232,7 @@ span {
   -moz-box-shadow: none;
   box-shadow: none;
   text-align: right;
-  width: 100%;
+  width: 150px;
 }
 #valor:focus-visible {
   outline: none !important;
@@ -230,7 +241,7 @@ span {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  margin-top: 5px;
+  margin-top: 15px;
 }
 .adicionar {
   border: none;
@@ -238,15 +249,16 @@ span {
   color: #6c757d;
   font-weight: 400;
   width: 100px;
+  padding: 10px !important;
   border-radius: 4px;
-  margin-left: 5px;
+  margin: 0 0 15px 10px;
 }
 label,
 .labelValor {
   color: #343a40;
   font-size: 18px;
   font-weight: 500;
-  margin-bottom: 5px;
+  margin-bottom: 15px;
 }
 .form-control {
   height: 35px;
