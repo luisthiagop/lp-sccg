@@ -108,7 +108,6 @@
 
 <script>
 import { Money } from 'v-money'
-import axios from 'axios'
 export default {
   components: { Money },
 
@@ -132,10 +131,7 @@ export default {
   methods: {
     async sendData() {
       try {
-        const res = await axios.post(
-          'https://api.simulacredcg.com.br/wp-json/api/lead',
-          this.formData
-        )
+        const res = await this.$axios.$post('/api/lead', this.formData)
         console.log(res)
       } catch (err) {
         console.log(err)
