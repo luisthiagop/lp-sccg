@@ -131,11 +131,15 @@ export default {
   },
   methods: {
     async sendData() {
-      const res = await axios.post(
-        'http://localhost:8000/wp-json/api/lead',
-        this.formData
-      )
-      console.log(res)
+      try {
+        const res = await axios.post(
+          'http://api.simulacredcg.com.br/wp-json/api/lead',
+          this.formData
+        )
+        console.log(res)
+      } catch (err) {
+        console.log(err)
+      }
     },
   },
 }
