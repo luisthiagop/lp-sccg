@@ -84,7 +84,6 @@
         </div>
       </div>
     </div>
-    {{ formData }}
   </div>
 </template>
 
@@ -127,6 +126,30 @@ export default {
 * {
   font-family: 'Barlow', sans-serif;
   line-height: normal;
+}
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .fundo {
+    background: url(@/static/images/backgroundTablet.svg) no-repeat fixed !important;
+    background-size: 100% !important;
+  }
+  .conteudo-coluna1 {
+    margin-top: 5vh !important;
+  }
+  .conteudo-coluna2 {
+    margin-top: 3vh !important;
+  }
+}
+@media (max-width: 767.98px) {
+  .fundo {
+    background: url(@/static/images/backgroundMobile.svg) no-repeat fixed !important;
+    background-size: 100% !important;
+  }
+  .conteudo-coluna1 {
+    margin-top: 5vh !important;
+  }
+  .conteudo-coluna2 {
+    margin-top: 3vh !important;
+  }
 }
 .fundo {
   background: url(@/static/images/background.svg) no-repeat fixed;
