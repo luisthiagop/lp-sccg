@@ -1,20 +1,38 @@
 <template>
   <div class="fundo">
+    <div class="cookies-container">
+      <div class="cookies-content">
+        <p>
+          Conforme a
+          <a
+            href="http://www.planalto.gov.br/ccivil_03/_ato2015-2018/2018/lei/l13709.htm"
+            >Lei Geral de Proteção de Dados</a
+          >, é necessário aceitar o uso de cookies para personalizar a
+          experiência no site.
+        </p>
+        <button class="btn-cookies">Aceitar cookies</button>
+      </div>
+    </div>
     <div class="container">
       <div class="row linha1">
         <div class="col-sm-12 col-md-12 col-lg-6 coluna1">
-          <div class="conteudo-coluna1 col-12 px-0">
-            <div class="logo">
-              <img src="@/static/images/SimulaCred.svg" alt="Logo SimulaCred" />
+          <div class="row px-3">
+            <div class="conteudo-coluna1 col-12 px-0">
+              <div class="logo">
+                <img
+                  src="@/static/images/SimulaCred.svg"
+                  alt="Logo SimulaCred"
+                />
+              </div>
+              <p class="subtitulo mt-4">Crédito rápido e fácil.</p>
+              <p class="legenda mt-4 col-lg-8 col-md-8 px-0">
+                Com a nossa empresa, fazer um empréstimo é muito simples.
+                Contamos com métodos que facilitam esse processo.
+              </p>
+              <p class="chamada col-lg-8 col-md-8 px-0">
+                Simule em nossa ferramenta as condições de crédito
+              </p>
             </div>
-            <p class="subtitulo mt-4">Crédito rápido e fácil.</p>
-            <p class="legenda mt-4 col-lg-8 col-md-8 px-0">
-              Com a nossa empresa, fazer um empréstimo é muito simples. Contamos
-              com métodos que facilitam esse processo.
-            </p>
-            <p class="chamada col-lg-8 col-md-8 px-0">
-              Simule em nossa ferramenta as condições de crédito
-            </p>
           </div>
         </div>
         <div class="col-sm-12 col-md-12 col-lg-6 coluna2">
@@ -31,14 +49,14 @@
                 ></money>
               </div>
               <div class="btnsAdicionar">
-                <button class="adicionar" @click="formData.valor += 100">
-                  + 100,00
-                </button>
                 <button class="adicionar" @click="formData.valor += 500">
                   + 500,00
                 </button>
                 <button class="adicionar" @click="formData.valor += 1000">
                   + 1000,00
+                </button>
+                <button class="adicionar" @click="formData.valor += 10000">
+                  + 10.000,00
                 </button>
               </div>
               <b-form-group id="input-group" label="Nome:" label-for="input-2">
@@ -84,7 +102,7 @@
         </div>
       </div>
     </div>
-    <footer><p>2021 Copyrigth</p></footer>
+    <footer><p>2021 © Copyright</p></footer>
   </div>
 </template>
 
@@ -133,17 +151,26 @@ export default {
     background: url(@/static/images/backgroundTablet.svg) no-repeat fixed !important;
     background-size: 100% !important;
   }
+  .cookies-container {
+    height: 20vh !important;
+  }
   .conteudo-coluna1 {
     margin-top: 5vh !important;
   }
   .conteudo-coluna2 {
     margin-top: 3vh !important;
   }
+  footer {
+    margin-top: 5vh;
+  }
 }
 @media (max-width: 767.98px) {
   .fundo {
     background: url(@/static/images/backgroundMobile.svg) no-repeat fixed !important;
     background-size: 100% !important;
+  }
+  .cookies-container {
+    height: 180px !important;
   }
   .conteudo-coluna1 {
     margin-top: 5vh !important;
@@ -163,19 +190,54 @@ export default {
   .chamada {
     text-align: center !important;
   }
+  footer {
+    margin-top: 5vh;
+  }
 }
 .fundo {
   background: url(@/static/images/background.svg) no-repeat fixed;
   background-size: 100%;
 }
+.cookies-container {
+  z-index: 1000;
+  color: #fff;
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  background-color: rgba(44, 152, 93, 0.76);
+  height: 15vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 18px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+}
+.cookies-content {
+  text-align: center;
+  padding: 15px;
+}
+.btn-cookies {
+  width: 150px;
+  height: 35px;
+  font-weight: 500;
+  border: none;
+  color: #343a40;
+  border-radius: 4px;
+}
+.cookies-content p a {
+  color: #fff;
+  text-decoration: underline;
+}
 .linha1 {
-  min-height: 100vh;
+  min-height: 95vh;
 }
 .coluna1 {
-  background: transparent;
+  display: flex;
+  flex-direction: column;
 }
 .conteudo-coluna1 {
-  margin-top: 15vh;
+  margin-top: 20vh;
   margin-right: 20%;
 }
 .logo {
@@ -204,12 +266,20 @@ export default {
   margin-right: 20%;
   background-color: #f1f0f0;
   border-radius: 12px;
-  box-shadow: rgb(191, 194, 190) -4px 4px 15px -6px;
+  box-shadow: rgb(191, 194, 190) 0 0 10px;
 }
 h2 {
   font-size: 36px;
   font-weight: 500;
+  text-align: center;
   color: #00823b;
+}
+.labelValor {
+  color: #343a40;
+  font-size: 18px;
+  font-weight: 500;
+  text-align: center;
+  margin-bottom: 15px;
 }
 span {
   font-size: 36px;
@@ -262,12 +332,6 @@ label {
   font-weight: 500;
   margin-bottom: 5px;
 }
-.labelValor {
-  color: #343a40;
-  font-size: 18px;
-  font-weight: 500;
-  margin-bottom: 15px;
-}
 .form-control {
   height: 35px;
   padding: 5px 12px;
@@ -319,5 +383,19 @@ label {
 }
 .btn.btn-secondary:focus-visible {
   outline: none;
+}
+footer {
+  width: 100%;
+  height: 80px;
+  background-color: #00823b;
+  color: #fff;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+footer p {
+  width: 100%;
+  margin-bottom: none;
 }
 </style>
