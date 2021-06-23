@@ -133,7 +133,7 @@ export default {
     async sendData() {
       try {
         const res = await axios.post(
-          'http://api.simulacredcg.com.br/wp-json/api/lead',
+          'https://api.simulacredcg.com.br/wp-json/api/lead',
           this.formData
         )
         console.log(res)
