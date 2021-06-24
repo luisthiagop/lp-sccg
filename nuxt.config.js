@@ -41,18 +41,22 @@ export default {
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
-  modules: ['bootstrap-vue/nuxt', '@nuxtjs/axios'],
+  modules: ['bootstrap-vue/nuxt', '@nuxtjs/axios', '@nuxtjs/proxy'],
+
+  axios: {
+    'Content-Type': 'application/json',
+  },
+
+  proxy: {
+    '/api': {
+      target: 'https://api.simulacredcg.com.br/wp-json/api',
+    },
+  },
+
   bootstrapVue: {
     icons: true,
   },
 
-  axios: {
-    proxy: true,
-  },
-
-  proxy: {
-    '/api': 'https://api.simulacredcg.com.br/wp-json/api',
-  },
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {},
 }

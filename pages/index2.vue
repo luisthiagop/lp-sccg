@@ -1,401 +1,272 @@
 <template>
-  <div class="fundo">
-    <div class="cookies-container">
-      <div class="cookies-content">
-        <p>
-          Conforme a
-          <a
-            href="http://www.planalto.gov.br/ccivil_03/_ato2015-2018/2018/lei/l13709.htm"
-            >Lei Geral de Proteção de Dados</a
-          >, é necessário aceitar o uso de cookies para personalizar a
-          experiência no site.
-        </p>
-        <button class="btn-cookies">Aceitar cookies</button>
-      </div>
+  <div>
+    <div class="box-cookies hide">
+      <p class="msg-cookies">
+        Este site usa cookies para garantir que você obtenha a melhor
+        experiência.
+      </p>
+      <button class="btn-cookies">Aceitar cookies</button>
     </div>
-    <div class="container">
-      <div class="row linha1">
-        <div class="col-sm-12 col-md-12 col-lg-6 coluna1">
-          <div class="row px-3">
-            <div class="conteudo-coluna1 col-12 px-0">
+    <div class="quadrado">
+      <div class="container">
+        <div class="row">
+          <div class="col-sx-12 col-sm-12 col-md-6 col-lg-6 col-xg-6">
+            <div class="ladoEsquerdo">
               <div class="logo">
                 <img
                   src="@/static/images/SimulaCred.svg"
                   alt="Logo SimulaCred"
                 />
               </div>
-              <p class="subtitulo mt-4">Crédito rápido e fácil.</p>
-              <p class="legenda mt-4 col-lg-8 col-md-8 px-0">
+              <p class="titulo">Crédito rápido e fácil.</p>
+              <p class="legenda">
                 Com a nossa empresa, fazer um empréstimo é muito simples.
                 Contamos com métodos que facilitam esse processo.
               </p>
-              <p class="chamada col-lg-8 col-md-8 px-0">
-                Simule em nossa ferramenta as condições de crédito
-              </p>
+              <section class="lista">
+                <div class="item">
+                  Serviços online
+                  <b-icon icon="display-fill"></b-icon>
+                </div>
+                <div class="item">
+                  Dinamismo
+                  <b-icon icon="gear-fill"></b-icon>
+                </div>
+                <div class="item">
+                  Equipe qualificada
+                  <b-icon icon="people-fill"></b-icon>
+                </div>
+              </section>
             </div>
           </div>
-        </div>
-        <div class="col-sm-12 col-md-12 col-lg-6 coluna2">
-          <div class="conteudo-coluna2 col-12 px-4 py-2">
-            <h2>Consulte as condições</h2>
-            <div class="formulario">
-              <p class="labelValor">Digite um valor para simular:</p>
-              <div class="inputValor">
-                <span> R$ </span>
-                <money
-                  v-bind="money"
-                  id="valor"
-                  v-model="formData.valor"
-                ></money>
-              </div>
-              <div class="btnsAdicionar">
-                <button class="adicionar" @click="formData.valor += 500">
-                  + 500,00
-                </button>
-                <button class="adicionar" @click="formData.valor += 1000">
-                  + 1000,00
-                </button>
-                <button class="adicionar" @click="formData.valor += 10000">
-                  + 10.000,00
-                </button>
-              </div>
-              <b-form-group id="input-group" label="Nome:" label-for="input-2">
-                <b-form-input
-                  id="input"
-                  v-model="formData.nome"
-                  required
-                ></b-form-input>
-              </b-form-group>
-              <b-form-group id="input-group" label="Email:" label-for="input-2">
-                <b-form-input
-                  id="input2"
-                  v-model="formData.email"
-                  required
-                ></b-form-input>
-              </b-form-group>
-              <b-form-group
-                id="input-group"
-                label="Telefone:"
-                label-for="input-2"
-              >
-                <b-form-input
-                  id="input3"
-                  v-model="formData.whatsapp"
-                  required
-                ></b-form-input>
-              </b-form-group>
-              <b-form-checkbox
-                id="checkbox-1"
-                v-model="permiteContato"
-                name="checkbox-1"
-                size="sm"
-              >
-                Sim, aceito receber emails, mensagens e ligações da empresa.
-              </b-form-checkbox>
-              <div class="wrapper-button">
-                <b-button :disabled="!permiteContato" @click="sendData"
-                  >Enviar</b-button
-                >
-              </div>
+          <div
+            class="
+              col-sx-12 col-sm-12 col-md-12 col-lg-6 col-xg-6
+              mb-lg-5 mb-md-5 mb-sm-5 mb-sx-5
+            "
+          >
+            <div class="row">
+              <form class="formulario col-sm-10">
+                <div class="form_bg">
+                  <p class="tituloForm">Consulte as condições</p>
+                  <section class="digiteValor">
+                    <p class="labelValor">Digite um valor para simular:</p>
+                    <span> R$ </span>
+                    <input id="valor" placeholder="1000,00" type="number" />
+                  </section>
+                  <b-form-group
+                    id="input-group"
+                    label="Nome:"
+                    label-for="input-2"
+                  >
+                    <b-form-input id="input" required></b-form-input>
+                  </b-form-group>
+                  <b-form-group
+                    id="input-group"
+                    label="Email:"
+                    label-for="input-2"
+                  >
+                    <b-form-input id="input2" required></b-form-input>
+                  </b-form-group>
+                  <b-form-group
+                    id="input-group"
+                    label="Telefone:"
+                    label-for="input-2"
+                  >
+                    <b-form-input id="input3" required></b-form-input>
+                  </b-form-group>
+                  <b-form-checkbox id="checkbox-1" name="checkbox-1">
+                    Sim, aceito receber emails, mensagens e ligações da empresa.
+                  </b-form-checkbox>
+                  <div class="wrapper-button"><b-button>Enviar</b-button></div>
+                </div>
+              </form>
             </div>
           </div>
         </div>
       </div>
+      <footer class="footer"></footer>
     </div>
-    <footer><p>2021 © Copyright</p></footer>
   </div>
 </template>
 
 <script>
-import { Money } from 'v-money'
-export default {
-  components: { Money },
-
-  data() {
-    return {
-      permiteContato: true,
-      formData: {
-        valor: 5000,
-        nome: '',
-        email: '',
-        whatsapp: '',
-      },
-      money: {
-        decimal: ',',
-        thousands: '.',
-        precision: 2,
-        masked: false,
-      },
-    }
-  },
-  methods: {
-    async sendData() {
-      try {
-        const res = await this.$axios.$post('/api/lead', this.formData)
-        console.log(res)
-      } catch (err) {
-        console.log(err)
-      }
-    },
-  },
-}
+export default {}
 </script>
 
 <style>
-* {
-  font-family: 'Barlow', sans-serif;
-  line-height: normal;
-}
-@media (min-width: 768px) and (max-width: 991.98px) {
-  .fundo {
-    background: url(@/static/images/backgroundTablet.svg) no-repeat fixed !important;
-    background-size: 100% !important;
-  }
-  .cookies-container {
-    height: 20vh !important;
-  }
-  .conteudo-coluna1 {
-    margin-top: 5vh !important;
-  }
-  .conteudo-coluna2 {
-    margin-top: 3vh !important;
-  }
-  footer {
-    margin-top: 5vh;
-  }
-}
-@media (max-width: 767.98px) {
-  .fundo {
-    background: url(@/static/images/backgroundMobile.svg) no-repeat fixed !important;
-    background-size: 100% !important;
-  }
-  .cookies-container {
-    height: 180px !important;
-  }
-  .conteudo-coluna1 {
-    margin-top: 5vh !important;
-  }
-  .conteudo-coluna2 {
-    margin-top: 3vh !important;
-  }
-  .logo {
-    text-align: center !important;
-  }
-  .subtitulo {
-    text-align: center !important;
-  }
-  .legenda {
-    text-align: center !important;
-  }
-  .chamada {
-    text-align: center !important;
-  }
-  footer {
-    margin-top: 5vh;
-  }
-}
-.fundo {
-  background: url(@/static/images/background.svg) no-repeat fixed;
-  background-size: 100%;
-}
-.cookies-container {
-  z-index: 1000;
+.box-cookies {
   color: #fff;
+  font-family: 'Barlow', sans-serif;
+  font-weight: 500;
   position: fixed;
+  background-color: rgba(65, 133, 96, 0.7);
   width: 100%;
+  height: 60px;
+  padding: 25px;
   bottom: 0;
-  background-color: rgba(44, 152, 93, 0.76);
-  height: 15vh;
+  z-index: 1000;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  font-size: 18px;
-  font-weight: 500;
-  letter-spacing: 0.5px;
-}
-.cookies-content {
-  text-align: center;
-  padding: 15px;
 }
 .btn-cookies {
-  width: 150px;
-  height: 35px;
-  font-weight: 500;
-  border: none;
-  color: #343a40;
+  border: 0;
   border-radius: 4px;
+  background-color: #fff;
+  color: #343a40;
 }
-.cookies-content p a {
-  color: #fff;
-  text-decoration: underline;
+.msg-cookies {
+  height: 100%;
 }
-.linha1 {
-  min-height: 95vh;
+.quadrado {
+  background: url(@/static/images/background.svg) no-repeat fixed center top;
+  background-size: 100%;
 }
-.coluna1 {
-  display: flex;
-  flex-direction: column;
+.container {
+  min-height: calc(100vh - 90px);
 }
-.conteudo-coluna1 {
-  margin-top: 20vh;
-  margin-right: 20%;
+.ladoEsquerdo {
+  margin: 20vh 0 0 0;
+  font-family: 'Barlow', sans-serif;
+  color: #001f0d;
 }
 .logo {
+  width: 172px;
   height: 40px;
+  margin-bottom: 18px;
 }
-.subtitulo {
+.titulo {
   font-size: 24px;
   font-weight: 700;
-  color: #001f0d;
+  margin-bottom: 35px;
+}
+.campos {
+  display: flex;
+  flex-direction: column;
 }
 .legenda {
   font-size: 18px;
   font-weight: 500;
-  color: #001f0d;
+  line-height: 20px;
+  width: 360px;
+  height: 60px;
+  margin-bottom: 35px;
 }
-.chamada {
+.lista {
+  display: flex;
+  flex-direction: row;
+  margin-right: 40px;
+}
+.item {
+  width: 88px;
+  height: 68px;
+  margin-right: 45px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
   font-size: 18px;
-  font-weight: 700;
-  color: #001f0d;
+  font-weight: 500;
+  line-height: 19px;
+  text-align: center;
 }
-.coluna2 {
-  background: transparent;
+svg {
+  width: 30px;
+  height: 30px;
 }
-.conteudo-coluna2 {
-  margin-top: 15vh;
-  margin-right: 20%;
+.formulario {
+  width: 505px;
+  height: 494px;
+  margin: 10vh 0 0 0;
+  padding: 15px 30px;
   background-color: #f1f0f0;
   border-radius: 12px;
-  box-shadow: rgb(191, 194, 190) 0 0 10px;
-}
-h2 {
-  font-size: 36px;
+  font-family: 'Barlow', sans-serif;
   font-weight: 500;
+  line-height: normal;
+  color: #343a40;
+  -webkit-box-shadow: -4px 4px 15px -6px #707070;
+  box-shadow: -4px 4px 15px -6px #707070;
+}
+.tituloForm {
+  color: #00823b;
+  height: 30px;
+  font-size: 32px;
   text-align: center;
+  margin-bottom: 30px;
+  line-height: normal;
+}
+form div p {
+  font-size: 24px;
+  color: #001f0d;
+  margin-bottom: 15px;
+  height: 27px;
+}
+.input-group {
+  font-size: 18px;
+}
+#valor {
+  font-size: 24px;
+  background: none;
+  border: none;
+  margin-bottom: 15px;
+  width: 200px;
+  color: #343a40;
+}
+span {
+  font-size: 24px;
   color: #00823b;
 }
 .labelValor {
-  color: #343a40;
-  font-size: 18px;
-  font-weight: 500;
-  text-align: center;
-  margin-bottom: 15px;
-}
-span {
-  font-size: 36px;
-  font-weight: 500;
-  color: #6c757d;
-}
-.inputValor {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  width: 100%;
-}
-#valor {
-  color: #343a40;
-  font-weight: 500;
-  font-size: 36px;
-  border: none;
-  background-image: none;
-  background-color: transparent;
-  -webkit-box-shadow: none;
-  -moz-box-shadow: none;
-  box-shadow: none;
-  text-align: right;
-  min-width: 150px;
-  max-width: 225px;
-}
-#valor:focus-visible {
-  outline: none !important;
-}
-.btnsAdicionar {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  margin-top: 15px;
-}
-.adicionar {
-  border: none;
-  background-color: #fff;
-  color: #6c757d;
-  font-size: 18px;
-  font-weight: 400;
-  width: 100px;
-  padding: 10px !important;
-  border-radius: 4px;
-  margin: 0 0 15px 10px;
-}
-label {
-  color: #343a40;
-  font-size: 18px;
-  font-weight: 500;
   margin-bottom: 5px;
+  font-size: 18px;
+  font-family: 'Barlow', sans-serif;
+  font-weight: 500;
+  color: #343a40;
 }
 .form-control {
-  height: 35px;
-  padding: 5px 12px;
-  font-size: 18px;
-}
-.form-control:focus {
-  border: 1px solid #00823b;
-  box-shadow: inherit !important;
+  height: 30px;
 }
 .form-group {
+  height: 54px;
   margin-bottom: 15px;
+}
+.d-block {
+  margin-bottom: 5px;
+}
+.custom-control.custom-checkbox {
+  margin-top: 30px;
+}
+.custom-control-input {
+  width: 13px;
+  height: 13px;
 }
 .custom-control-label {
-  font-size: 14px;
+  font-family: 'Barlow', sans-serif;
   font-weight: 400;
   color: #6c757d;
-}
-.custom-control.custom-checkbox.b-custom-control-sm {
-  margin-bottom: 15px;
-}
-.custom-checkbox .custom-control-input:checked ~ .custom-control-label::before {
-  background-color: #00823b;
-  box-shadow: inherit !important;
-  border: inherit !important;
 }
 .wrapper-button {
   width: 100%;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
+  text-align: center;
 }
-.btn.btn-secondary {
+.btn {
+  background-color: #00823b;
+  font-family: 'Barlow', sans-serif;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 20px;
   width: 150px;
   height: 45px;
-  color: #fff;
-  font-size: 20px;
-  font-weight: 500;
-  background: #00823b;
-  border: none;
-  border-radius: 6px;
-  margin-bottom: 5px;
+  margin: 15px 0;
 }
-.btn.btn-secondary:active {
-  background-color: #003b1a !important;
+.btn-secondary {
+  border: 0;
 }
-.btn.btn-secondary:focus {
-  box-shadow: none;
-  outline: none;
-}
-.btn.btn-secondary:focus-visible {
-  outline: none;
-}
-footer {
+.footer {
   width: 100%;
-  height: 80px;
-  background-color: #00823b;
-  color: #fff;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-footer p {
-  width: 100%;
-  margin-bottom: none;
+  height: 90px;
+  background-color: #418560;
 }
 </style>
