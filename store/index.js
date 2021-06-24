@@ -33,7 +33,10 @@ export const getters = {
 export const actions = {
   async sendData(context) {
     try {
-      const res = await this.$axios.post('/api/lead', context.getters.formData)
+      const res = await this.$axios.post(
+        'https://api.simulacredcg.com.br/wp-json/api/lead',
+        context.getters.formData
+      )
       console.log(res)
     } catch (err) {
       console.log(err)
