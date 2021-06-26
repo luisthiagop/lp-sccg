@@ -6,6 +6,7 @@ export const state = () => ({
     valor: 5000,
   },
   loading: false,
+  acceptedCookies: false,
 })
 
 export const mutations = {
@@ -24,6 +25,10 @@ export const mutations = {
   changeLoading(state, value) {
     state.loading = value
   },
+  ACCEPT_COOKIES(state, val) {
+    console.log(val)
+    state.acceptedCookies = val
+  },
 }
 
 export const getters = {
@@ -33,6 +38,7 @@ export const getters = {
   valor: (state) => state.formData.valor,
   formData: (state) => state.formData,
   loading: (state) => state.loading,
+  acceptedCookies: (state) => state.acceptedCookies,
 }
 
 export const actions = {
@@ -48,6 +54,18 @@ export const actions = {
       console.log(err)
     } finally {
       context.commit('changeLoading', false)
+    }
+  },
+  acceptCookie(context) {
+    context.commit('ACCEPT_COOKIES', true)
+    localStorage.setItem('acceptedCookie', true)
+  },
+  async getLSAcceptedCookies(context) {
+    try {
+      const val = await localStorage.getItem('acceptedCookie')
+      context.commit('ACCEPT_COOKIES', val)
+    } catch (err) {
+      context.commit('ACCEPT_COOKIES', false)
     }
   },
 }

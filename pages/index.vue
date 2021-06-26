@@ -1,16 +1,31 @@
 <template>
   <div class="fundo">
-    <div class="cookies-container">
-      <div class="cookies-content">
-        <p>
+    <div v-if="!acceptedCookies" class="cookies-container px-lg-5">
+      <div
+        class="
+          cookies-content
+          w-100
+          d-flex
+          flex-column flex-lg-row
+          justify-content-lg-between
+        "
+      >
+        <p style="text-align: left" class="px-5">
           Conforme a
           <a
             href="http://www.planalto.gov.br/ccivil_03/_ato2015-2018/2018/lei/l13709.htm"
             >Lei Geral de Proteção de Dados</a
-          >, é necessário aceitar o uso de cookies para personalizar a
-          experiência no site.
+          >, precisamos de sua autorização para utilizar os cookies do navegador
+          e o armazenamento local. Eventualmente utilizamos esses recursos para
+          otimizar a experiência no nosso site.
         </p>
-        <button class="btn-cookies">Aceitar cookies</button>
+        <button
+          type="button"
+          class="btn btn-outline-light"
+          @click="acceptCookies"
+        >
+          ACEITAR
+        </button>
       </div>
     </div>
     <div class="container">
@@ -91,7 +106,7 @@
                 name="checkbox-1"
                 size="sm"
               >
-                Sim, aceito receber emails, mensagens e ligações da empresa.
+                Sim, aceito ser contatado por meio desses dados.
               </b-form-checkbox>
               <div class="wrapper-button">
                 <b-button :disabled="!permiteContato" @click="sendData">
@@ -118,7 +133,6 @@
 import { Money } from 'v-money'
 export default {
   components: { Money },
-
   data() {
     return {
       permiteContato: true,
@@ -134,6 +148,9 @@ export default {
   computed: {
     loading() {
       return this.$store.getters.loading
+    },
+    acceptedCookies() {
+      return this.$store.getters.acceptedCookies
     },
     nome: {
       get() {
@@ -168,9 +185,15 @@ export default {
       },
     },
   },
+  mounted() {
+    this.$store.dispatch('getLSAcceptedCookies')
+  },
   methods: {
     sendData() {
       this.$store.dispatch('sendData')
+    },
+    acceptCookies() {
+      this.$store.dispatch('acceptCookie')
     },
   },
 }
@@ -244,7 +267,7 @@ export default {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 500;
   letter-spacing: 0.5px;
 }
