@@ -46,33 +46,42 @@
               </div>
               <div class="btnsAdicionar">
                 <button class="adicionar" @click="valor += 500">
-                  + 500,00
+                  +<br />
+                  500,00
                 </button>
                 <button class="adicionar" @click="valor += 1000">
-                  + 1000,00
+                  +<br />
+                  1000,00
                 </button>
                 <button class="adicionar" @click="valor += 10000">
                   + 10.000,00
                 </button>
               </div>
               <b-form-group id="input-group" label="Nome:" label-for="input-2">
-                <b-form-input id="input" v-model="nome" required></b-form-input>
+                <b-form-input
+                  id="input"
+                  v-model="nome"
+                  placeholder="digite o seu nome"
+                  required
+                ></b-form-input>
               </b-form-group>
               <b-form-group id="input-group" label="Email:" label-for="input-2">
                 <b-form-input
                   id="input2"
                   v-model="email"
+                  placeholder="digite o seu e-mail"
                   required
                 ></b-form-input>
               </b-form-group>
               <b-form-group
                 id="input-group"
-                label="Telefone:"
+                label="Whatsapp:"
                 label-for="input-2"
               >
                 <b-form-input
                   id="input3"
                   v-model="whatsapp"
+                  placeholder="digite o seu whatsapp"
                   required
                 ></b-form-input>
               </b-form-group>
@@ -85,9 +94,16 @@
                 Sim, aceito receber emails, mensagens e ligações da empresa.
               </b-form-checkbox>
               <div class="wrapper-button">
-                <b-button :disabled="!permiteContato" @click="sendData"
-                  >Simular</b-button
-                >
+                <b-button :disabled="!permiteContato" @click="sendData">
+                  <div
+                    v-if="loading"
+                    class="loading spinner-border text-light"
+                    role="status"
+                  >
+                    <span class="sr-only">Loading...</span>
+                  </div>
+                  Simular
+                </b-button>
               </div>
             </div>
           </div>
@@ -116,6 +132,9 @@ export default {
     }
   },
   computed: {
+    loading() {
+      return this.$store.getters.loading
+    },
     nome: {
       get() {
         return this.$store.state.formData.nome
@@ -349,7 +368,7 @@ label {
   margin-bottom: 5px;
 }
 .form-control {
-  height: 35px;
+  height: 45px;
   padding: 5px 12px;
   font-size: 18px;
 }
