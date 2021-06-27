@@ -210,7 +210,7 @@ export default {
     background-size: 100% !important;
   }
   .cookies-container {
-    height: 20vh !important;
+    min-height: 20vh !important;
   }
   .conteudo-coluna1 {
     margin-top: 5vh !important;
@@ -228,7 +228,7 @@ export default {
     background-size: 100% !important;
   }
   .cookies-container {
-    height: 180px !important;
+    min-height: 180px !important;
   }
   .conteudo-coluna1 {
     margin-top: 5vh !important;
@@ -263,7 +263,7 @@ export default {
   width: 100%;
   bottom: 0;
   background-color: rgba(44, 152, 93, 0.76);
-  height: 15vh;
+  min-height: 15vh;
   display: flex;
   align-items: center;
   justify-content: space-between;
