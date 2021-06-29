@@ -21,7 +21,26 @@ export default {
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
       { rel: 'preconnect', href: 'https://fonts.gstatic.com' },
       {
-        href: 'https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;700&display=swap',
+        rel: 'preconnect',
+        href: 'https://fonts.googleapis.com',
+      },
+      {
+        rel: 'preconnect',
+        href: 'https://fonts.gstatic.com',
+        crossorigin: true,
+      },
+      {
+        href: 'https://fonts.googleapis.com/css2?family=Exo+2:wght@300;400;500&display=swap',
+        rel: 'stylesheet',
+      },
+      { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
+      {
+        rel: 'preconnect',
+        href: 'https://fonts.gstatic.com',
+        crossorigin: true,
+      },
+      {
+        href: 'https://fonts.googleapis.com/css2?family=Nunito:wght@300;400&display=swap',
         rel: 'stylesheet',
       },
     ],

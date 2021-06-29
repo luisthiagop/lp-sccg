@@ -34,11 +34,14 @@
         <div class="col-sm-12 col-md-12 col-lg-6 coluna1">
           <div class="row px-3">
             <div class="conteudo-coluna1 col-12 px-0">
-              <p class="chamada col-lg-9 col-md-8 px-0">
+              <p class="chamada col-lg-11 col-md-12 px-0 px-md-4">
                 Faça aqui sua
                 <span class="importante">simulação de crédito</span> consignado
                 e receba nosso contato.
               </p>
+              <div class="imagem">
+                <img src="@/static/images/smartphone.png" />
+              </div>
             </div>
           </div>
         </div>
@@ -97,7 +100,11 @@
                 Sim, aceito ser contatado por meio desses dados.
               </b-form-checkbox>
               <div class="wrapper-button">
-                <b-button :disabled="!permiteContato" @click="sendData">
+                <b-button
+                  :disabled="!permiteContato"
+                  class="botao"
+                  @click="sendData"
+                >
                   <div
                     v-if="loading"
                     class="loading spinner-border text-light"
@@ -190,19 +197,64 @@ export default {
 
 <style>
 * {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
-    Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-family: 'Exo 2', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+    Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   line-height: normal;
+}
+@media (min-width: 1200px) {
+  h2 {
+    font-size: 38px !important;
+  }
+  .labelValor {
+    font-size: 20px !important;
+  }
+  .inputValor span {
+    font-size: 38px !important;
+  }
+  #valor {
+    font-size: 38px !important;
+  }
+  .form-group {
+    margin-bottom: 25px !important;
+  }
+  #input1::placeholder {
+    font-size: 18px !important;
+  }
+  #input2::placeholder {
+    font-size: 18px !important;
+  }
+  #input3::placeholder {
+    font-size: 18px !important;
+  }
+  .custom-control-label {
+    font-size: 16px !important;
+  }
+  .botao {
+    font-size: 22px !important;
+  }
+  .footer {
+    margin-top: 0 !important;
+  }
 }
 @media (min-width: 768px) and (max-width: 991.98px) {
   .cookies-container {
     min-height: 20vh !important;
   }
   .conteudo-coluna1 {
-    margin-top: 5vh !important;
+    margin-top: 15vh !important;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .chamada {
+    text-align: center;
+    font-size: 40px !important;
+  }
+  .importante {
+    font-size: 40px !important;
   }
   .conteudo-coluna2 {
-    margin-top: 3vh !important;
+    margin-top: 5vh !important;
   }
   footer {
     margin-top: 5vh;
@@ -213,10 +265,10 @@ export default {
     min-height: 180px !important;
   }
   .conteudo-coluna1 {
-    margin-top: 5vh !important;
+    margin-top: 15vh !important;
   }
   .conteudo-coluna2 {
-    margin-top: 3vh !important;
+    margin-top: 5vh !important;
   }
   .logo {
     text-align: center !important;
@@ -228,7 +280,11 @@ export default {
     text-align: center !important;
   }
   .chamada {
+    font-size: 36px !important;
     text-align: center !important;
+  }
+  .importante {
+    font-size: 36px !important;
   }
   footer {
     margin-top: 5vh;
@@ -269,34 +325,35 @@ export default {
   text-decoration: underline;
 }
 .linha1 {
-  min-height: 95vh;
+  min-height: 85vh;
 }
 .coluna1 {
   display: flex;
   flex-direction: column;
 }
 .conteudo-coluna1 {
-  margin-top: 20vh;
+  margin-top: 15vh;
   margin-right: 20%;
 }
-.subtitulo {
-  font-size: 24px;
-  font-weight: 700;
-  color: #001f0d;
-}
-.legenda {
-  font-size: 18px;
-  font-weight: 500;
-  color: #001f0d;
-}
 .chamada {
-  font-size: 45px;
+  font-size: 55px;
   font-weight: 300;
   color: #757575;
 }
 .importante {
   color: #3fa110;
-  font-size: 45px;
+  font-size: 55px;
+}
+.imagem {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: 30px;
+  padding-right: 65px;
+}
+.imagem img {
+  width: 250px;
+  height: 250px;
 }
 .coluna2 {
   background: transparent;
@@ -313,8 +370,10 @@ h2 {
 }
 .labelValor {
   color: #5a645b;
+  font-family: 'Nunito', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+    Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif !important;
   font-size: 18px;
-  font-weight: 300;
+  font-weight: 400;
   text-align: center;
   margin-bottom: 15px;
 }
@@ -364,13 +423,13 @@ span {
   margin: 0 0 15px 10px;
 }
 .form-control {
-  height: 45px;
-  padding: 5px 12px;
+  height: 35px;
+  padding: 2px;
   font-size: 18px;
   background-color: transparent !important;
   border: none !important;
   border-radius: 0;
-  border-bottom: 1px solid #bbb !important;
+  border-bottom: 1px solid #cdd3cd !important;
 }
 .form-control:focus {
   border-bottom: 2px solid #3fa110 !important;
@@ -399,7 +458,7 @@ span {
 }
 .custom-control-label {
   font-size: 14px;
-  font-weight: 300;
+  font-weight: 400;
   color: #5a645b;
 }
 .custom-control.custom-checkbox.b-custom-control-sm {
@@ -420,6 +479,8 @@ span {
   width: 150px;
   height: 45px;
   color: #fff;
+  font-family: 'Nunito', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+    Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   font-size: 20px;
   font-weight: 400;
   background: #3fa110;
@@ -440,8 +501,8 @@ span {
 footer {
   width: 100%;
   height: 80px;
-  margin-top: 8vh !important;
-  background-color: #212529;
+  margin-top: 8vh;
+  background-color: #323c32;
   color: #fff;
   text-align: center;
   display: flex;
@@ -450,6 +511,6 @@ footer {
 }
 footer p {
   width: 100%;
-  margin-bottom: none;
+  margin: 0;
 }
 </style>
