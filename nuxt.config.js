@@ -50,7 +50,7 @@ export default {
   css: [],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: ['@/plugins/vue-money.js'],
+  plugins: ['@/plugins/vue-money.js', '@/plugins/vue-mask.js'],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,

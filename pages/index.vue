@@ -36,8 +36,8 @@
             <div class="conteudo-coluna1 col-12 px-0">
               <p class="chamada col-lg-11 col-md-12 px-0 px-md-4">
                 Faça aqui sua
-                <span class="importante">simulação de crédito</span> consignado
-                e receba nosso contato.
+                <span class="enfase">simulação de crédito</span> consignado e
+                receba nosso contato.
               </p>
               <div class="imagem">
                 <img src="@/static/images/smartphone.png" />
@@ -87,6 +87,7 @@
                 <b-form-input
                   id="input3"
                   v-model="whatsapp"
+                  v-mask="'(##) #####-####'"
                   placeholder="Whatsapp"
                   required
                 ></b-form-input>
@@ -250,7 +251,7 @@ export default {
     text-align: center;
     font-size: 40px !important;
   }
-  .importante {
+  .enfase {
     font-size: 40px !important;
   }
   .conteudo-coluna2 {
@@ -283,7 +284,7 @@ export default {
     font-size: 36px !important;
     text-align: center !important;
   }
-  .importante {
+  .enfase {
     font-size: 36px !important;
   }
   footer {
@@ -340,7 +341,7 @@ export default {
   font-weight: 300;
   color: #757575;
 }
-.importante {
+.enfase {
   color: #3fa110;
   font-size: 55px;
 }
