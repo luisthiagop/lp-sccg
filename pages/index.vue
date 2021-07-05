@@ -31,7 +31,10 @@
     </div>
     <div class="container">
       <div class="row linha1">
-        <div class="col-sm-12 col-md-12 col-lg-6 coluna1">
+        <div
+          v-if="!loading && !leadSaved"
+          class="col-sm-12 col-md-12 col-lg-6 coluna1"
+        >
           <div class="row px-3">
             <div class="conteudo-coluna1 col-12 px-0">
               <p class="chamada col-lg-11 col-md-12 px-0 px-md-4">
@@ -45,9 +48,12 @@
             </div>
           </div>
         </div>
-        <div class="col-sm-12 col-md-12 col-lg-6 coluna2">
+        <div
+          v-if="!loading && !leadSaved"
+          class="col-sm-12 col-md-12 col-lg-6 coluna2"
+        >
           <div class="conteudo-coluna2 col-12 px-4 py-2">
-            <h2>Consulte as condições</h2>
+            <h2>Consulte as condições sa simulação</h2>
             <div class="formulario">
               <p class="labelValor">Digite um valor para simular:</p>
               <div class="inputValor">
@@ -55,31 +61,31 @@
                 <money v-bind="money" id="valor" v-model="valor"></money>
               </div>
               <div class="btnsAdicionar">
-                <button class="adicionar" @click="valor += 500">
+                <button class="adicionar" @click="valor += 5000">
                   +<br />
-                  500,00
-                </button>
-                <button class="adicionar" @click="valor += 1000">
-                  +<br />
-                  1000,00
+                  5000,00
                 </button>
                 <button class="adicionar" @click="valor += 10000">
-                  + 10.000,00
+                  +<br />
+                  10.000,00
+                </button>
+                <button class="adicionar" @click="valor += 20000">
+                  + 20.000,00
                 </button>
               </div>
               <b-form-group id="input-group" label-for="input-2">
                 <b-form-input
                   id="input1"
                   v-model="nome"
-                  placeholder="Nome"
-                  required
+                  placeholder="Nome*"
+                  :required="true"
                 ></b-form-input>
               </b-form-group>
               <b-form-group id="input-group" label-for="input-2">
                 <b-form-input
                   id="input2"
                   v-model="email"
-                  placeholder="E-mail"
+                  placeholder="E-mail*"
                   required
                 ></b-form-input>
               </b-form-group>
@@ -88,7 +94,7 @@
                   id="input3"
                   v-model="whatsapp"
                   v-mask="'(##) #####-####'"
-                  placeholder="Whatsapp"
+                  placeholder="Whatsapp*"
                   required
                 ></b-form-input>
               </b-form-group>
@@ -106,18 +112,93 @@
                   class="botao"
                   @click="sendData"
                 >
-                  <div
-                    v-if="loading"
-                    class="loading spinner-border text-light"
-                    role="status"
-                  >
-                    <span class="sr-only">Loading...</span>
-                  </div>
                   Simular
                 </b-button>
               </div>
             </div>
           </div>
+        </div>
+        <div
+          v-if="!loading && leadSaved"
+          class="col-sm-12 col-md-12 col-lg-12 coluna3"
+        >
+          <div class="conteudo-coluna3 col-12 px-4 py-2">
+            <h2>Verifique as condições</h2>
+            <div class="formulario">
+              <p class="labelValor">Valor simulado:</p>
+              <div class="inputValor">
+                <span> R$ </span>
+                <money v-bind="money" id="valor" v-model="valor"></money>
+              </div>
+              <div class="btnsAdicionar">
+                <button class="adicionar" @click="valor += 1000">
+                  +<br />
+                  1000,00
+                </button>
+                <button class="adicionar" @click="valor += 10000">
+                  +<br />
+                  10.000,00
+                </button>
+                <button class="adicionar" @click="valor += 20000">
+                  + 20.000,00
+                </button>
+              </div>
+            </div>
+            <h3 style="text-align: center">Parcelas:</h3>
+            <div class="row d-flex justify-content-center">
+              <div class="simulacao col-xs-6 col-sm-4 col-md-3 col-lg-3">
+                <span> 12 x </span>
+                <br />
+                <span>{{ simulacao(12) | currency }} </span>
+              </div>
+              <div class="simulacao col-xs-6 col-sm-4 col-md-3 col-lg-3">
+                <span> 24 x </span>
+                <br />
+
+                <span>{{ simulacao(24) | currency }} </span>
+              </div>
+              <div class="simulacao col-xs-6 col-sm-4 col-md-3 col-lg-3">
+                <span> 36 x </span>
+                <br />
+
+                <span>{{ simulacao(36) | currency }} </span>
+              </div>
+              <div class="simulacao col-xs-6 col-sm-4 col-md-3 col-lg-3">
+                <span> 48 x </span>
+                <br />
+
+                <span>{{ simulacao(48) | currency }} </span>
+              </div>
+              <div class="simulacao col-xs-6 col-sm-4 col-md-3 col-lg-3">
+                <span> 60 x </span>
+                <br />
+
+                <span>{{ simulacao(60) | currency }} </span>
+              </div>
+              <div class="simulacao col-xs-6 col-sm-4 col-md-3 col-lg-3">
+                <span> 120 x </span>
+                <br />
+
+                <span>{{ simulacao(120) | currency }} </span>
+              </div>
+            </div>
+            <p style="text-align: center; margin-top: 10px">
+              Os valores simulados são aproximados, entre em contato com um
+              atendente para saber as taxas e tarifas exatas.
+            </p>
+          </div>
+        </div>
+        <div
+          v-if="loading"
+          class="d-flex col-12 align-items-center justify-content-center"
+        >
+          <loading-progress
+            :indeterminate="true"
+            size="100"
+            rotate
+            fill-duration="2"
+            rotation-duration="1"
+          />
         </div>
       </div>
     </div>
@@ -128,18 +209,22 @@
 <script>
 import Header from '@/components/Header.vue'
 import { Money } from 'v-money'
+
 export default {
   components: { Money, Header },
   data() {
     return {
       permiteContato: true,
       novoValor: 0,
+      taxa: 0.0113,
       money: {
         decimal: ',',
         thousands: '.',
         precision: 2,
         masked: false,
       },
+      leadSaved: false,
+      erro: false,
     }
   },
   computed: {
@@ -181,16 +266,37 @@ export default {
         this.$store.commit('updateValor', value)
       },
     },
+    simulacao12() {
+      return this.simulacao(12)
+    },
+  },
+  watch: {
+    valor() {
+      if (this.valor > 9999999.99) {
+        this.valor = 0
+      }
+    },
   },
   mounted() {
     this.$store.dispatch('getLSAcceptedCookies')
   },
   methods: {
-    sendData() {
-      this.$store.dispatch('sendData')
+    async sendData() {
+      try {
+        await this.$store.dispatch('sendData')
+        this.leadSaved = true
+      } catch (err) {
+        this.erro = true
+      }
     },
     acceptCookies() {
       this.$store.dispatch('acceptCookie')
+    },
+    simulacao(parcelas) {
+      return (
+        (this.valor * (Math.pow(1 + this.taxa, parcelas) * this.taxa)) /
+        (Math.pow(1 + this.taxa, parcelas) - 1)
+      ).toFixed(2)
     },
   },
 }
@@ -257,6 +363,9 @@ export default {
   .conteudo-coluna2 {
     margin-top: 5vh !important;
   }
+  .conteudo-coluna3 {
+    margin-top: 10vh !important;
+  }
   footer {
     margin-top: 5vh;
   }
@@ -270,6 +379,9 @@ export default {
   }
   .conteudo-coluna2 {
     margin-top: 5vh !important;
+  }
+  .conteudo-coluna3 {
+    margin-top: 10vh !important;
   }
   .logo {
     text-align: center !important;
@@ -359,9 +471,18 @@ export default {
 .coluna2 {
   background: transparent;
 }
+.coluna3 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
 .conteudo-coluna2 {
   margin-top: 15vh;
   margin-right: 20%;
+}
+.conteudo-coluna3 {
+  margin-top: 11vh;
 }
 h2 {
   font-size: 36px;
@@ -401,7 +522,7 @@ span {
   box-shadow: none;
   text-align: right;
   min-width: 150px;
-  max-width: 225px;
+  max-width: 325px;
 }
 #valor:focus-visible {
   outline: none !important;
@@ -410,18 +531,28 @@ span {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  margin-top: 15px;
+  margin-top: 25px;
+  margin-bottom: 25px;
 }
 .adicionar {
   border: 1px solid #bbb !important;
   background-color: transparent;
   color: #757575;
   font-size: 18px;
-  font-weight: 400;
   width: 100px;
   padding: 10px !important;
   border-radius: 4px;
+  font-weight: bold;
   margin: 0 0 15px 10px;
+  -webkit-box-shadow: 0 2px 10px -2px rgb(0 0 0 / 20%);
+  -moz-box-shadow: 0 2px 10px -2px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 2px 10px -2px rgb(0 0 0 / 20%);
+}
+.adicionar:hover {
+  background-color: #3fa110;
+  font-weight: bold;
+  border: 1px solid #3fa110 !important;
+  color: #fff;
 }
 .form-control {
   height: 35px;
@@ -499,6 +630,25 @@ span {
 .btn.btn-secondary:focus-visible {
   outline: none;
 }
+
+.simulacao {
+  background: transparent;
+  height: 150px;
+  padding: 15px;
+  margin: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-content: center;
+  border: 2px solid #3fa110;
+  border-radius: 4px;
+}
+
+.simulacao span {
+  color: #757575;
+  font-size: 29px;
+  font-weight: bold;
+}
 footer {
   width: 100%;
   height: 80px;
@@ -513,5 +663,8 @@ footer {
 footer p {
   width: 100%;
   margin: 0;
+}
+.vue-progress-path .progress {
+  stroke: #3fa110;
 }
 </style>

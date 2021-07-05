@@ -50,7 +50,11 @@ export default {
   css: [],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: ['@/plugins/vue-money.js', '@/plugins/vue-mask.js'],
+  plugins: [
+    '@/plugins/vue-money.js',
+    '@/plugins/vue-mask.js',
+    '@/plugins/vue-loading.js',
+  ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
@@ -64,7 +68,23 @@ export default {
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
-  modules: ['bootstrap-vue/nuxt', '@nuxtjs/axios', '@nuxtjs/proxy'],
+  modules: [
+    'bootstrap-vue/nuxt',
+    '@nuxtjs/axios',
+    '@nuxtjs/proxy',
+    [
+      'vue-currency-filter/nuxt',
+      {
+        symbol: 'R$',
+        thousandsSeparator: '.',
+        fractionCount: 2,
+        fractionSeparator: ',',
+        symbolPosition: 'front',
+        symbolSpacing: true,
+        avoidEmptyDecimals: undefined,
+      },
+    ],
+  ],
 
   axios: {
     'Content-Type': 'application/json',
