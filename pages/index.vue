@@ -53,7 +53,7 @@
           class="col-sm-12 col-md-12 col-lg-6 coluna2"
         >
           <div class="conteudo-coluna2 col-12 px-4 py-2">
-            <h2>Consulte as condições sa simulação</h2>
+            <h2>Consulte as condições de simulação</h2>
             <div class="formulario">
               <p class="labelValor">Digite um valor para simular:</p>
               <div class="inputValor">
