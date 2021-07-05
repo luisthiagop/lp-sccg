@@ -108,7 +108,7 @@
               </b-form-checkbox>
               <div class="wrapper-button">
                 <b-button
-                  :disabled="!permiteContato"
+                  :disabled="!permiteContato || !isFormValid"
                   class="botao"
                   @click="sendData"
                 >
@@ -190,7 +190,13 @@
         </div>
         <div
           v-if="loading"
-          class="d-flex col-12 align-items-center justify-content-center"
+          class="
+            d-flex
+            col-12
+            flex-column
+            align-items-center
+            justify-content-center
+          "
         >
           <loading-progress
             :indeterminate="true"
@@ -199,6 +205,7 @@
             fill-duration="2"
             rotation-duration="1"
           />
+          obtendo valores
         </div>
       </div>
     </div>
@@ -209,6 +216,7 @@
 <script>
 import Header from '@/components/Header.vue'
 import { Money } from 'v-money'
+import * as yup from 'yup'
 
 export default {
   components: { Money, Header },
@@ -268,6 +276,21 @@ export default {
     },
     simulacao12() {
       return this.simulacao(12)
+    },
+    isFormValid() {
+      const schema = yup.object().shape({
+        nome: yup.string().required(),
+        email: yup.string().email(),
+        whatsapp: yup.string().min(15).required(),
+        valor: yup.number().required(),
+      })
+
+      return schema.isValidSync({
+        nome: this.nome,
+        email: this.email,
+        whatsapp: this.whatsapp,
+        valor: this.valor,
+      })
     },
   },
   watch: {

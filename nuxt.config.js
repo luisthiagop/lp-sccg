@@ -8,7 +8,7 @@ export default {
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: 'simulacred',
+    title: 'Simulção Consignado',
     htmlAttrs: {
       lang: 'en',
     },
@@ -92,7 +92,7 @@ export default {
 
   proxy: {
     '/api': {
-      target: 'https://api.simulacredcg.com.br/wp-json/api',
+      target: 'https://api.simulacaoconsignado.com.br/wp-json/api',
     },
   },
 

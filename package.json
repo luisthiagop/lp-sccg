@@ -29,7 +29,8 @@
     "v-mask": "^2.2.4",
     "v-money": "^0.8.1",
     "vue-currency-filter": "^5.2.0",
-    "vue-progress-path": "^0.0.2"
+    "vue-progress-path": "^0.0.2",
+    "yup": "^0.32.9"
   },
   "devDependencies": {
     "@nuxtjs/eslint-config": "^6.0.0",

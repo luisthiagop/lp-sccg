@@ -26,7 +26,6 @@ export const mutations = {
     state.loading = value
   },
   ACCEPT_COOKIES(state, val) {
-    console.log(val)
     state.acceptedCookies = val
   },
 }
@@ -46,7 +45,7 @@ export const actions = {
     try {
       context.commit('changeLoading', true)
       const res = await this.$axios.post(
-        'https://api.simulacredcg.com.br/wp-json/api/lead',
+        'https://api.simulacaoconsignado.com.br/wp-json/api/lead',
         context.getters.formData
       )
       console.log(res)
