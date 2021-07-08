@@ -8,7 +8,7 @@ export default {
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: 'Simulção Consignado',
+    title: 'Simulação Consignado',
     htmlAttrs: {
       lang: 'en',
     },
