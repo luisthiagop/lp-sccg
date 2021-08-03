@@ -39,7 +39,7 @@
             <div class="conteudo-coluna1 col-12 px-0">
               <p class="chamada col-lg-11 col-md-12 px-0 px-md-4">
                 Faça aqui sua
-                <span class="enfase">simulação de crédito</span> consignado e
+                <span class="enfase">simulação de crédito consignado</span> e
                 receba nosso contato.
               </p>
               <div class="imagem">
@@ -457,7 +457,7 @@ export default {
   border-radius: 4px;
 }
 .cookies-content p a {
-  color: #fff;
+  color: #87c544;
   text-decoration: underline;
 }
 .linha1 {
@@ -472,13 +472,15 @@ export default {
   margin-right: 20%;
 }
 .chamada {
-  font-size: 55px;
-  font-weight: 300;
-  color: #757575;
+  font-size: 48px;
+  font-weight: 600;
+  font-style: italic;
+  color: #52595a;
 }
 .enfase {
-  color: #3fa110;
-  font-size: 55px;
+  color: #87c544;
+  font-weight: 700;
+  font-size: 48px;
 }
 .imagem {
   display: flex;
@@ -486,6 +488,10 @@ export default {
   justify-content: center;
   margin-top: 30px;
   padding-right: 65px;
+  width: 300px;
+  height: 300px;
+  background-color: #87c544;
+  border-radius: 0 30px 30px 30px;
 }
 .imagem img {
   width: 250px;
@@ -508,44 +514,47 @@ export default {
   margin-top: 11vh;
 }
 h2 {
-  font-size: 36px;
-  font-weight: 400;
-  text-align: center;
-  color: #3fa110;
+  font-size: 40px !important;
+  font-weight: 600;
+  font-style: italic;
+  text-align: left;
+  color: #52595a;
 }
 .labelValor {
-  color: #5a645b;
-  font-family: 'Nunito', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
-    Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif !important;
+  color: #52595a;
   font-size: 18px;
-  font-weight: 400;
-  text-align: center;
+  font-weight: 600;
+  text-align: left;
+  font-style: italic;
   margin-bottom: 15px;
 }
 span {
   font-size: 36px;
-  font-weight: 400;
-  color: #757575;
+  font-weight: 600;
+  font-style: italic;
+  color: #52595a;
 }
 .inputValor {
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: left;
   width: 100%;
 }
 #valor {
-  color: #323c32;
-  font-weight: 400;
+  color: #52595a;
+  font-weight: 600;
   font-size: 36px;
+  font-style: italic;
   border: none;
   background-image: none;
   background-color: transparent;
   -webkit-box-shadow: none;
   -moz-box-shadow: none;
   box-shadow: none;
-  text-align: right;
+  text-align: left;
   min-width: 150px;
   max-width: 325px;
+  margin-left: 20px;
 }
 #valor:focus-visible {
   outline: none !important;
@@ -558,18 +567,15 @@ span {
   margin-bottom: 25px;
 }
 .adicionar {
-  border: 1px solid #bbb !important;
+  border: 2px solid #52595a !important;
   background-color: transparent;
-  color: #757575;
-  font-size: 18px;
-  width: 100px;
+  color: #52595a;
+  font-size: 20px;
+  width: 130px;
   padding: 10px !important;
-  border-radius: 4px;
+  border-radius: 10px;
   font-weight: bold;
   margin: 0 0 15px 10px;
-  -webkit-box-shadow: 0 2px 10px -2px rgb(0 0 0 / 20%);
-  -moz-box-shadow: 0 2px 10px -2px rgba(0, 0, 0, 0.2);
-  box-shadow: 0 2px 10px -2px rgb(0 0 0 / 20%);
 }
 .adicionar:hover {
   background-color: #3fa110;
@@ -634,8 +640,6 @@ span {
   width: 150px;
   height: 45px;
   color: #fff;
-  font-family: 'Nunito', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
-    Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   font-size: 20px;
   font-weight: 400;
   background: #3fa110;

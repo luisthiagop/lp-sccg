@@ -40,7 +40,7 @@ export default {
         crossorigin: true,
       },
       {
-        href: 'https://fonts.googleapis.com/css2?family=Nunito:wght@300;400&display=swap',
+        href: 'https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@1,500;1,600;1,700&display=swap',
         rel: 'stylesheet',
       },
     ],
