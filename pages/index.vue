@@ -43,7 +43,7 @@
                 receba nosso contato.
               </p>
               <div class="imagem">
-                <img src="@/static/images/smartphone.png" />
+                <img src="@/static/images/handphone.svg" />
               </div>
             </div>
           </div>
@@ -62,15 +62,16 @@
               </div>
               <div class="btnsAdicionar">
                 <button class="adicionar" @click="valor += 5000">
-                  +<br />
+                  <span>+</span> <br />
                   5000,00
                 </button>
                 <button class="adicionar" @click="valor += 10000">
-                  +<br />
+                  <span>+</span><br />
                   10.000,00
                 </button>
                 <button class="adicionar" @click="valor += 20000">
-                  + 20.000,00
+                  <span>+</span><br />
+                  20.000,00
                 </button>
               </div>
               <b-form-group id="input-group" label-for="input-2">
@@ -112,7 +113,7 @@
                   class="botao"
                   @click="sendData"
                 >
-                  Simular
+                  Simule aqui
                 </b-button>
               </div>
             </div>
@@ -468,8 +469,7 @@ export default {
   flex-direction: column;
 }
 .conteudo-coluna1 {
-  margin-top: 15vh;
-  margin-right: 20%;
+  margin-top: 20vh;
 }
 .chamada {
   font-size: 48px;
@@ -507,7 +507,7 @@ export default {
   width: 100%;
 }
 .conteudo-coluna2 {
-  margin-top: 15vh;
+  margin-top: 20vh;
   margin-right: 20%;
 }
 .conteudo-coluna3 {
@@ -519,6 +519,7 @@ h2 {
   font-style: italic;
   text-align: left;
   color: #52595a;
+  width: 460px;
 }
 .labelValor {
   color: #52595a;
@@ -562,71 +563,67 @@ span {
 .btnsAdicionar {
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: left;
   margin-top: 25px;
   margin-bottom: 25px;
+}
+.adicionar span {
+  font-size: 40px;
+  font-weight: 700;
 }
 .adicionar {
   border: 2px solid #52595a !important;
   background-color: transparent;
   color: #52595a;
-  font-size: 20px;
-  width: 130px;
+  font-size: 25px;
+  font-weight: 600;
+  font-style: italic;
+  width: 150px;
   padding: 10px !important;
   border-radius: 10px;
-  font-weight: bold;
-  margin: 0 0 15px 10px;
+  margin: 0 10px 15px 0;
 }
 .adicionar:hover {
-  background-color: #3fa110;
+  background-color: #87c544;
   font-weight: bold;
-  border: 1px solid #3fa110 !important;
+  border: 1px solid #87c544 !important;
   color: #fff;
 }
 .form-control {
+  width: 450px;
   height: 35px;
   padding: 2px;
   font-size: 18px;
   background-color: transparent !important;
   border: none !important;
   border-radius: 0;
-  border-bottom: 1px solid #cdd3cd !important;
+  border-bottom: 1px solid #c5c8c8 !important;
 }
 .form-control:focus {
-  border-bottom: 2px solid #3fa110 !important;
+  border-bottom: 2px solid #87c544 !important;
   box-shadow: inherit !important;
 }
 .form-group {
   margin-bottom: 15px;
 }
-#input1::placeholder {
-  font-size: 16px;
-  font-weight: 400;
-  font-family: Arial, Helvetica, sans-serif !important;
-  color: #757575;
-}
-#input2::placeholder {
-  font-size: 16px;
-  font-weight: 400;
-  font-family: Arial, Helvetica, sans-serif !important;
-  color: #757575;
-}
+#input1::placeholder,
+#input2::placeholder,
 #input3::placeholder {
-  font-size: 16px;
-  font-weight: 400;
-  font-family: Arial, Helvetica, sans-serif !important;
-  color: #757575;
+  font-size: 18px;
+  font-weight: 500;
+  font-style: italic;
+  color: #52595a;
 }
 .custom-control-label {
   font-size: 14px;
-  font-weight: 400;
-  color: #5a645b;
+  font-weight: 500;
+  color: #52595a;
 }
 .custom-control.custom-checkbox.b-custom-control-sm {
   margin-bottom: 15px;
 }
 .custom-checkbox .custom-control-input:checked ~ .custom-control-label::before {
-  background-color: #3fa110;
+  background-color: #87c544;
   box-shadow: inherit !important;
   border: inherit !important;
 }
@@ -637,12 +634,13 @@ span {
   justify-content: center;
 }
 .btn.btn-secondary {
-  width: 150px;
-  height: 45px;
+  width: 200px;
+  height: 60px;
   color: #fff;
-  font-size: 20px;
-  font-weight: 400;
-  background: #3fa110;
+  font-size: 30px !important;
+  font-weight: 600;
+  font-style: italic;
+  background: #87c544;
   border: none;
   border-radius: 6px;
   margin-bottom: 5px;
@@ -672,7 +670,7 @@ span {
 }
 
 .simulacao span {
-  color: #757575;
+  color: #52595a;
   font-size: 29px;
   font-weight: bold;
 }
