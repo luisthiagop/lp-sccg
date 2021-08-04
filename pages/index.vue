@@ -377,12 +377,18 @@ export default {
     display: flex !important;
     flex-direction: column !important;
     justify-content: center !important;
+    padding: 0 24px !important;
   }
   .chamada {
     text-align: left;
     font-size: 40px !important;
+    padding: 0 !important;
+  }
+  .enfase {
+    font-size: 40px !important;
   }
   .imagem {
+    margin: 10px 0 0 0 !important;
     display: flex;
     flex-direction: row;
     align-self: center !important;
@@ -390,9 +396,6 @@ export default {
   .imagem img {
     width: 320px !important;
     height: 278px !important;
-  }
-  .enfase {
-    font-size: 40px !important;
   }
   .conteudo-coluna2 {
     margin-top: 5vh !important;
@@ -404,15 +407,17 @@ export default {
     margin-top: 5vh;
   }
 }
-@media (max-width: 767.98px) {
+@media (min-width: 576px) and (max-width: 767.98px) {
   .cookies-container {
     min-height: 180px !important;
   }
   .conteudo-coluna1 {
     margin-top: 15vh !important;
+    padding: 0 !important;
   }
   .conteudo-coluna2 {
     margin-top: 5vh !important;
+    padding: 0 !important;
   }
   .conteudo-coluna3 {
     margin-top: 10vh !important;
@@ -432,8 +437,80 @@ export default {
     justify-content: center;
   }
   .imagem img {
-    width: 320px !important;
-    height: 278px !important;
+    width: 223px !important;
+    height: 193px !important;
+  }
+  .adicionar span {
+    font-size: 18px !important;
+  }
+  .adicionar {
+    font-size: 18px !important;
+  }
+  h2 {
+    font-size: 32px !important;
+    width: 400px !important;
+  }
+  .form-control {
+    width: 400px !important;
+  }
+  footer {
+    margin-top: 5vh;
+  }
+}
+@media (max-width: 576px) {
+  .cookies-container {
+    min-height: 180px !important;
+  }
+  .conteudo-coluna1 {
+    margin-top: 15vh !important;
+    padding: 0 !important;
+  }
+  .conteudo-coluna2 {
+    margin-top: 5vh !important;
+    padding: 0 !important;
+  }
+  .conteudo-coluna3 {
+    margin-top: 10vh !important;
+  }
+  .chamada {
+    font-size: 32px !important;
+    text-align: left !important;
+  }
+  .enfase {
+    font-size: 32px !important;
+  }
+  .imagem {
+    margin: 10px 0 0 0 !important;
+    width: 100% !important;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+  .imagem img {
+    width: 223px !important;
+    height: 193px !important;
+  }
+  .btnsAdicionar {
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    margin-top: 25px;
+    margin-bottom: 25px;
+  }
+  .adicionar span {
+    font-size: 16px !important;
+  }
+  .adicionar {
+    margin: 0 15px 0 0;
+    padding-bottom: 10px;
+    font-size: 16px !important;
+  }
+  h2 {
+    font-size: 28px !important;
+    width: 290px !important;
+  }
+  .form-control {
+    width: 280px !important;
   }
   footer {
     margin-top: 5vh;
@@ -515,7 +592,7 @@ export default {
   margin-top: 11vh;
 }
 h2 {
-  font-size: 40px !important;
+  font-size: 40px;
   font-weight: 600;
   text-align: left;
   color: #52595a;
@@ -570,8 +647,9 @@ span {
 }
 .adicionar {
   width: 150px;
-  height: 80px;
+  height: 90px;
   margin: 0 15px 0 0;
+  padding-bottom: 10px;
   border: 2px solid #52595a !important;
   border-radius: 10px;
   background-color: transparent;
