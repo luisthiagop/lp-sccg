@@ -25,7 +25,7 @@
           class="btn btn-outline-light"
           @click="acceptCookies"
         >
-          ACEITAR
+          Aceitar
         </button>
       </div>
     </div>
@@ -43,7 +43,7 @@
                 receba nosso contato.
               </p>
               <div class="imagem">
-                <img src="@/static/images/handphone.svg" />
+                <img src="@/static/images/phonehand.png" />
               </div>
             </div>
           </div>
@@ -84,14 +84,6 @@
               </b-form-group>
               <b-form-group id="input-group" label-for="input-2">
                 <b-form-input
-                  id="input2"
-                  v-model="email"
-                  placeholder="E-mail*"
-                  required
-                ></b-form-input>
-              </b-form-group>
-              <b-form-group id="input-group" label-for="input-2">
-                <b-form-input
                   id="input3"
                   v-model="whatsapp"
                   v-mask="'(##) #####-####'"
@@ -99,11 +91,19 @@
                   required
                 ></b-form-input>
               </b-form-group>
+              <b-form-group id="input-group" label-for="input-2">
+                <b-form-input
+                  id="input2"
+                  v-model="email"
+                  placeholder="E-mail*"
+                  required
+                ></b-form-input>
+              </b-form-group>
               <b-form-checkbox
                 id="checkbox-1"
                 v-model="permiteContato"
                 name="checkbox-1"
-                size="sm"
+                size="md"
               >
                 Sim, aceito ser contatado por meio desses dados.
               </b-form-checkbox>
@@ -331,6 +331,7 @@ export default {
   font-family: 'Exo 2', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
     Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   line-height: normal;
+  font-style: italic;
 }
 @media (min-width: 1200px) {
   h2 {
@@ -344,9 +345,6 @@ export default {
   }
   #valor {
     font-size: 38px !important;
-  }
-  .form-group {
-    margin-bottom: 25px !important;
   }
   #input1::placeholder {
     font-size: 18px !important;
@@ -371,15 +369,27 @@ export default {
   .cookies-container {
     min-height: 20vh !important;
   }
+  .cookies-container button {
+    align-self: center;
+  }
   .conteudo-coluna1 {
     margin-top: 15vh !important;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
   }
   .chamada {
-    text-align: center;
+    text-align: left;
     font-size: 40px !important;
+  }
+  .imagem {
+    display: flex;
+    flex-direction: row;
+    align-self: center !important;
+  }
+  .imagem img {
+    width: 320px !important;
+    height: 278px !important;
   }
   .enfase {
     font-size: 40px !important;
@@ -407,28 +417,30 @@ export default {
   .conteudo-coluna3 {
     margin-top: 10vh !important;
   }
-  .logo {
-    text-align: center !important;
-  }
-  .subtitulo {
-    text-align: center !important;
-  }
-  .legenda {
-    text-align: center !important;
-  }
   .chamada {
     font-size: 36px !important;
-    text-align: center !important;
+    text-align: left !important;
   }
   .enfase {
     font-size: 36px !important;
+  }
+  .imagem {
+    margin: 10px 0 0 0 !important;
+    width: 100% !important;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+  .imagem img {
+    width: 320px !important;
+    height: 278px !important;
   }
   footer {
     margin-top: 5vh;
   }
 }
 .fundo {
-  background-color: #f8f9f7;
+  background-color: #fff;
 }
 .cookies-container {
   z-index: 1000;
@@ -436,30 +448,31 @@ export default {
   position: fixed;
   width: 100%;
   bottom: 0;
-  background-color: rgba(44, 152, 93, 0.76);
+  background-color: #383f36;
   min-height: 15vh;
   display: flex;
   align-items: center;
   justify-content: space-between;
   font-size: 16px;
-  font-weight: 500;
-  letter-spacing: 0.5px;
+  font-weight: 600;
 }
 .cookies-content {
   text-align: center;
   padding: 15px;
+  margin: 0 90px;
 }
-.btn-cookies {
+.cookies-container button {
   width: 150px;
   height: 35px;
-  font-weight: 500;
+  font-size: 18px;
+  font-weight: 600;
   border: none;
-  color: #343a40;
-  border-radius: 4px;
+  background-color: #87c544;
+  border-radius: 6px;
 }
 .cookies-content p a {
   color: #87c544;
-  text-decoration: underline;
+  text-decoration: none;
 }
 .linha1 {
   min-height: 85vh;
@@ -474,7 +487,6 @@ export default {
 .chamada {
   font-size: 48px;
   font-weight: 600;
-  font-style: italic;
   color: #52595a;
 }
 .enfase {
@@ -483,19 +495,8 @@ export default {
   font-size: 48px;
 }
 .imagem {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  margin-top: 30px;
-  padding-right: 65px;
-  width: 300px;
-  height: 300px;
-  background-color: #87c544;
-  border-radius: 0 30px 30px 30px;
-}
-.imagem img {
-  width: 250px;
-  height: 250px;
+  margin-left: 24px;
+  margin-top: -40px;
 }
 .coluna2 {
   background: transparent;
@@ -516,7 +517,6 @@ export default {
 h2 {
   font-size: 40px !important;
   font-weight: 600;
-  font-style: italic;
   text-align: left;
   color: #52595a;
   width: 460px;
@@ -526,13 +526,11 @@ h2 {
   font-size: 18px;
   font-weight: 600;
   text-align: left;
-  font-style: italic;
   margin-bottom: 15px;
 }
 span {
   font-size: 36px;
   font-weight: 600;
-  font-style: italic;
   color: #52595a;
 }
 .inputValor {
@@ -545,7 +543,6 @@ span {
   color: #52595a;
   font-weight: 600;
   font-size: 36px;
-  font-style: italic;
   border: none;
   background-image: none;
   background-color: transparent;
@@ -572,20 +569,19 @@ span {
   font-weight: 700;
 }
 .adicionar {
+  width: 150px;
+  height: 80px;
+  margin: 0 15px 0 0;
   border: 2px solid #52595a !important;
+  border-radius: 10px;
   background-color: transparent;
   color: #52595a;
   font-size: 25px;
   font-weight: 600;
-  font-style: italic;
-  width: 150px;
-  padding: 10px !important;
-  border-radius: 10px;
-  margin: 0 10px 15px 0;
 }
 .adicionar:hover {
   background-color: #87c544;
-  font-weight: bold;
+  font-weight: 600;
   border: 1px solid #87c544 !important;
   color: #fff;
 }
@@ -597,7 +593,7 @@ span {
   background-color: transparent !important;
   border: none !important;
   border-radius: 0;
-  border-bottom: 1px solid #c5c8c8 !important;
+  border-bottom: 2px solid #52595a !important;
 }
 .form-control:focus {
   border-bottom: 2px solid #87c544 !important;
@@ -610,17 +606,16 @@ span {
 #input2::placeholder,
 #input3::placeholder {
   font-size: 18px;
-  font-weight: 500;
-  font-style: italic;
+  font-weight: 600;
   color: #52595a;
 }
 .custom-control-label {
-  font-size: 14px;
-  font-weight: 500;
+  font-size: 18px;
+  font-weight: 600;
   color: #52595a;
 }
-.custom-control.custom-checkbox.b-custom-control-sm {
-  margin-bottom: 15px;
+.custom-control.custom-checkbox.b-custom-control-md {
+  margin: 30px 0;
 }
 .custom-checkbox .custom-control-input:checked ~ .custom-control-label::before {
   background-color: #87c544;
@@ -639,14 +634,13 @@ span {
   color: #fff;
   font-size: 30px !important;
   font-weight: 600;
-  font-style: italic;
   background: #87c544;
   border: none;
   border-radius: 6px;
   margin-bottom: 5px;
 }
 .btn.btn-secondary:active {
-  background-color: #003b1a !important;
+  background-color: #63972b !important;
 }
 .btn.btn-secondary:focus {
   box-shadow: none;
@@ -679,7 +673,7 @@ footer {
   height: 80px;
   margin-top: 8vh;
   background-color: #323c32;
-  color: #fff;
+  color: #87c544;
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -690,6 +684,6 @@ footer p {
   margin: 0;
 }
 .vue-progress-path .progress {
-  stroke: #3fa110;
+  stroke: #87c544;
 }
 </style>
