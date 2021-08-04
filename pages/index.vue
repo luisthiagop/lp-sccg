@@ -466,15 +466,15 @@ export default {
     padding: 0 !important;
   }
   .conteudo-coluna2 {
-    margin-top: 5vh !important;
-    padding: 0 !important;
+    margin-top: 8vh !important;
+    padding: 0 20px !important;
   }
   .conteudo-coluna3 {
     margin-top: 10vh !important;
   }
   .chamada {
     font-size: 32px !important;
-    text-align: left !important;
+    text-align: center !important;
   }
   .enfase {
     font-size: 32px !important;
@@ -490,27 +490,24 @@ export default {
     width: 223px !important;
     height: 193px !important;
   }
-  .btnsAdicionar {
-    display: flex;
-    flex-direction: row;
-    justify-content: left;
-    margin-top: 25px;
-    margin-bottom: 25px;
-  }
   .adicionar span {
     font-size: 16px !important;
   }
   .adicionar {
-    margin: 0 15px 0 0;
-    padding-bottom: 10px;
+    min-width: 100px !important;
     font-size: 16px !important;
   }
   h2 {
-    font-size: 28px !important;
-    width: 290px !important;
+    font-size: 32px !important;
+    max-width: 100% !important;
+    word-wrap: normal !important;
+  }
+  .labelValor {
+    margin-top: 15px !important;
   }
   .form-control {
-    width: 280px !important;
+    margin-top: 20px !important;
+    max-width: 100% !important;
   }
   footer {
     margin-top: 5vh;
@@ -578,18 +575,9 @@ export default {
 .coluna2 {
   background: transparent;
 }
-.coluna3 {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-}
 .conteudo-coluna2 {
   margin-top: 20vh;
   margin-right: 20%;
-}
-.conteudo-coluna3 {
-  margin-top: 11vh;
 }
 h2 {
   font-size: 40px;
@@ -761,6 +749,16 @@ footer p {
   width: 100%;
   margin: 0;
 }
+.coluna3 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+.conteudo-coluna3 {
+  margin-top: 11vh;
+}
+
 .vue-progress-path .progress {
   stroke: #87c544;
 }
