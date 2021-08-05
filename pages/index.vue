@@ -11,7 +11,7 @@
           justify-content-lg-between
         "
       >
-        <p style="text-align: left" class="px-5">
+        <p style="text-align: left" class="px-5 avisoCookies">
           Conforme a
           <a
             href="http://www.planalto.gov.br/ccivil_03/_ato2015-2018/2018/lei/l13709.htm"
@@ -448,9 +448,6 @@ export default {
   .custom-control-label {
     font-size: 20px !important;
   }
-  .conteudo-coluna3 {
-    margin-top: 10vh !important;
-  }
   .conteudo-coluna3 .simulacao span {
     font-size: 28px !important;
   }
@@ -516,9 +513,6 @@ export default {
   }
   .custom-control-label {
     font-size: 20px !important;
-  }
-  .conteudo-coluna3 {
-    margin-top: 10vh !important;
   }
   .conteudo-coluna3 h2 {
     width: 100% !important;
@@ -603,9 +597,6 @@ export default {
     margin-top: 25px !important;
     max-width: 100% !important;
   }
-  .conteudo-coluna3 {
-    margin-top: 10vh !important;
-  }
   .conteudo-coluna3 h3 {
     font-size: 30px !important;
   }
@@ -627,7 +618,6 @@ export default {
 }
 .cookies-container {
   z-index: 1000;
-  color: #fff;
   position: fixed;
   width: 100%;
   bottom: 0;
@@ -657,6 +647,9 @@ export default {
   border: none;
   background-color: #87c544;
   border-radius: 6px;
+}
+.cookies-content .avisoCookies {
+  color: #fff;
 }
 .cookies-content p a {
   color: #87c544;
@@ -848,7 +841,7 @@ span {
   width: 100%;
 }
 .conteudo-coluna3 {
-  margin-top: 11vh;
+  margin-top: 13vh;
   width: 100%;
 }
 .conteudo-coluna3 h2 {
