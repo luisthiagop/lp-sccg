@@ -20,13 +20,15 @@
           e o armazenamento local. Eventualmente utilizamos esses recursos para
           otimizar a experiência no nosso site.
         </p>
-        <button
-          type="button"
-          class="btn btn-outline-light"
-          @click="acceptCookies"
-        >
-          Aceitar
-        </button>
+        <div class="alignBtn">
+          <button
+            type="button"
+            class="btn btn-outline-light"
+            @click="acceptCookies"
+          >
+            Aceitar
+          </button>
+        </div>
       </div>
     </div>
     <div class="container">
@@ -93,7 +95,7 @@
               </b-form-group>
               <b-form-group id="input-group" label-for="input-2">
                 <b-form-input
-                  id="input3"
+                  id="input2"
                   v-model="whatsapp"
                   v-mask="'(##) #####-####'"
                   placeholder="Whatsapp*"
@@ -102,7 +104,7 @@
               </b-form-group>
               <b-form-group id="input-group" label-for="input-2">
                 <b-form-input
-                  id="input2"
+                  id="input3"
                   v-model="email"
                   placeholder="E-mail*"
                   required
@@ -128,29 +130,28 @@
             </div>
           </div>
         </div>
-        <div
-          v-if="!loading && leadSaved"
-          class="col-sm-12 col-md-12 col-lg-12 coluna3"
-        >
+        <div class="col-sm-12 col-md-12 col-lg-12 coluna3">
+          <!---v-if="!loading && leadSaved" --->
           <div class="conteudo-coluna3 col-12 px-4 py-2">
             <h2>Verifique as condições</h2>
-            <div class="formulario">
+            <div class="formulario formulario2">
               <p class="labelValor">Valor simulado:</p>
               <div class="inputValor">
                 <span> R$ </span>
                 <money v-bind="money" id="valor" v-model="valor"></money>
               </div>
-              <div class="btnsAdicionar">
+              <div class="btnsAdicionar row">
                 <button class="adicionar" @click="valor += 1000">
-                  +<br />
+                  <span>+</span><br />
                   1000,00
                 </button>
                 <button class="adicionar" @click="valor += 10000">
-                  +<br />
+                  <span>+</span><br />
                   10.000,00
                 </button>
                 <button class="adicionar" @click="valor += 20000">
-                  + 20.000,00
+                  <span>+</span><br />
+                  20.000,00
                 </button>
               </div>
             </div>
@@ -192,7 +193,7 @@
                 <span>{{ simulacao(120) | currency }} </span>
               </div>
             </div>
-            <p style="text-align: center; margin-top: 10px">
+            <p class="paragrafo">
               Os valores simulados são aproximados, entre em contato com um
               atendente para saber as taxas e tarifas exatas.
             </p>
@@ -290,7 +291,7 @@ export default {
     isFormValid() {
       const schema = yup.object().shape({
         nome: yup.string().required(),
-        email: yup.string().email(),
+        email: yup.string().email().required(),
         whatsapp: yup.string().min(15).required(),
         valor: yup.number().required(),
       })
@@ -341,6 +342,7 @@ export default {
     Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   line-height: normal;
   font-style: italic;
+  color: #52595a;
 }
 @media (min-width: 1200px) {
   h2 {
@@ -363,6 +365,10 @@ export default {
   }
   #input3::placeholder {
     font-size: 18px !important;
+  }
+  .conteudo-coluna3 {
+    margin-top: 16vh !important;
+    max-width: 65% !important;
   }
   .footer {
     margin-top: 0 !important;
@@ -443,6 +449,9 @@ export default {
   .conteudo-coluna3 {
     margin-top: 10vh !important;
   }
+  .conteudo-coluna3 .simulacao span {
+    font-size: 28px !important;
+  }
   footer {
     margin-top: 5vh;
   }
@@ -450,6 +459,9 @@ export default {
 @media (min-width: 576px) and (max-width: 767.98px) {
   .cookies-container {
     min-height: 180px !important;
+  }
+  .cookies-container button {
+    align-self: center;
   }
   .conteudo-coluna1 {
     margin-top: 17vh !important;
@@ -506,6 +518,19 @@ export default {
   .conteudo-coluna3 {
     margin-top: 10vh !important;
   }
+  .conteudo-coluna3 h2 {
+    width: 100% !important;
+    text-align: center !important;
+  }
+  .conteudo-coluna3 h3 {
+    font-size: 32px !important;
+  }
+  .conteudo-coluna3 .simulacao {
+    max-height: 120px !important;
+  }
+  .conteudo-coluna3 .simulacao span {
+    font-size: 26px !important;
+  }
   footer {
     margin-top: 5vh;
   }
@@ -514,6 +539,16 @@ export default {
   .cookies-container {
     min-height: 180px !important;
   }
+  .cookies-content {
+    margin: 0 40px !important;
+    padding: 15px 0 !important;
+  }
+  .cookies-content p {
+    padding: 0 !important;
+  }
+  .cookies-container button {
+    align-self: center;
+  }
   .conteudo-coluna1 {
     margin-top: 15vh !important;
     padding: 0 !important;
@@ -521,9 +556,6 @@ export default {
   .conteudo-coluna2 {
     margin-top: 8vh !important;
     padding: 0 20px !important;
-  }
-  .conteudo-coluna3 {
-    margin-top: 10vh !important;
   }
   .chamada {
     font-size: 34px !important;
@@ -552,7 +584,6 @@ export default {
     margin-top: 15px !important;
   }
   .btnsAdicionar {
-    flex-direction: column !important;
     justify-content: space-around !important;
     align-items: center !important;
     margin: 10px 0 !important;
@@ -561,13 +592,29 @@ export default {
     font-size: 28px !important;
   }
   .adicionar {
+    width: 180px !important;
     height: 80px !important;
-    margin: 10px 0 !important;
+    margin: 10px 5px !important;
     font-size: 26px !important;
   }
   .form-control {
-    margin-top: 20px !important;
+    margin-top: 25px !important;
     max-width: 100% !important;
+  }
+  .conteudo-coluna3 {
+    margin-top: 10vh !important;
+  }
+  .conteudo-coluna3 h3 {
+    font-size: 30px !important;
+  }
+  .conteudo-coluna3 .simulacao {
+    max-height: 100px !important;
+    height: 100% !important;
+    flex-direction: row !important;
+    justify-content: space-evenly !important;
+  }
+  .conteudo-coluna3 .simulacao span {
+    font-size: 26px !important;
   }
   footer {
     margin-top: 5vh;
@@ -595,9 +642,14 @@ export default {
   padding: 15px;
   margin: 0 90px;
 }
+.alignBtn {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
 .cookies-container button {
   width: 150px;
-  height: 35px;
+  height: 40px;
   font-size: 18px;
   font-weight: 600;
   border: none;
@@ -621,7 +673,6 @@ export default {
 .chamada {
   font-size: 48px;
   font-weight: 600;
-  color: #52595a;
 }
 .enfase {
   color: #87c544;
@@ -642,11 +693,9 @@ h2 {
   font-size: 40px;
   font-weight: 600;
   text-align: left;
-  color: #52595a;
   width: 460px;
 }
 .labelValor {
-  color: #52595a;
   font-size: 18px;
   font-weight: 600;
   text-align: left;
@@ -655,7 +704,6 @@ h2 {
 span {
   font-size: 36px;
   font-weight: 600;
-  color: #52595a;
 }
 .inputValor {
   display: flex;
@@ -664,7 +712,6 @@ span {
   width: 100%;
 }
 #valor {
-  color: #52595a;
   font-weight: 600;
   font-size: 36px;
   border: none;
@@ -683,6 +730,7 @@ span {
 }
 .btnsAdicionar {
   width: 100%;
+  max-width: 550px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -700,7 +748,6 @@ span {
   border: 2px solid #52595a !important;
   border-radius: 10px;
   background-color: transparent;
-  color: #52595a;
   font-size: 25px;
   font-weight: 600;
 }
@@ -737,7 +784,6 @@ span {
 .custom-control-label {
   font-size: 18px;
   font-weight: 600;
-  color: #52595a;
 }
 .custom-control.custom-checkbox.b-custom-control-md {
   margin: 30px 0;
@@ -774,6 +820,9 @@ span {
 .btn.btn-secondary:focus-visible {
   outline: none;
 }
+.vue-progress-path .progress {
+  stroke: #87c544;
+}
 .simulacao {
   background: transparent;
   height: 150px;
@@ -784,29 +833,11 @@ span {
   justify-content: space-around;
   align-content: center;
   border: 2px solid #3fa110;
-  border-radius: 4px;
+  border-radius: 6px;
 }
-
 .simulacao span {
-  color: #52595a;
   font-size: 29px;
   font-weight: bold;
-}
-footer {
-  width: 100%;
-  height: 80px;
-  margin-top: 8vh;
-  background-color: #323c32;
-  color: #87c544;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-footer p {
-  font-size: 22px;
-  width: 100%;
-  margin: 0;
 }
 .coluna3 {
   display: flex;
@@ -816,9 +847,47 @@ footer p {
 }
 .conteudo-coluna3 {
   margin-top: 11vh;
+  width: 100%;
 }
-
-.vue-progress-path .progress {
-  stroke: #87c544;
+.conteudo-coluna3 h2 {
+  width: 100%;
+  text-align: center;
+}
+.conteudo-coluna3 h3 {
+  font-size: 34px;
+  font-weight: 600 !important;
+}
+.conteudo-coluna3 .paragrafo {
+  text-align: center;
+  margin-top: 10px;
+  font-size: 16px;
+  font-weight: 600;
+}
+.formulario2 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.formulario2 .inputValor {
+  width: 300px;
+}
+.formulario2 .inputValor input {
+  text-align: right !important;
+}
+footer {
+  width: 100%;
+  height: 80px;
+  margin-top: 8vh;
+  background-color: #323c32;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+footer p {
+  font-size: 22px;
+  width: 100%;
+  margin: 0;
+  color: #87c544;
 }
 </style>
