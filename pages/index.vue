@@ -60,16 +60,25 @@
                 <span> R$ </span>
                 <money v-bind="money" id="valor" v-model="valor"></money>
               </div>
-              <div class="btnsAdicionar">
-                <button class="adicionar" @click="valor += 5000">
+              <div class="btnsAdicionar row">
+                <button
+                  class="adicionar col-xl-3 col-lg-2 col-md-3 col-sm-2"
+                  @click="valor += 5000"
+                >
                   <span>+</span> <br />
                   5000,00
                 </button>
-                <button class="adicionar" @click="valor += 10000">
+                <button
+                  class="adicionar col-xl-3 col-lg-2 col-md-3 col-sm-2"
+                  @click="valor += 10000"
+                >
                   <span>+</span><br />
                   10.000,00
                 </button>
-                <button class="adicionar" @click="valor += 20000">
+                <button
+                  class="adicionar col-xl-3 col-lg-2 col-md-3 col-sm-2"
+                  @click="valor += 20000"
+                >
                   <span>+</span><br />
                   20.000,00
                 </button>
@@ -355,14 +364,26 @@ export default {
   #input3::placeholder {
     font-size: 18px !important;
   }
-  .custom-control-label {
-    font-size: 16px !important;
-  }
-  .botao {
-    font-size: 22px !important;
-  }
   .footer {
     margin-top: 0 !important;
+  }
+}
+@media (min-width: 992px) and (max-width: 1199px) {
+  .conteudo-coluna2 {
+    padding-right: 0 !important;
+  }
+  .labelValor {
+    font-size: 20px !important;
+  }
+  .adicionar span {
+    font-size: 32px !important;
+  }
+  .adicionar {
+    min-width: 135px !important;
+    font-size: 23px !important;
+  }
+  .form-control {
+    width: 425px !important;
   }
 }
 @media (min-width: 768px) and (max-width: 991.98px) {
@@ -373,24 +394,22 @@ export default {
     align-self: center;
   }
   .conteudo-coluna1 {
-    margin-top: 15vh !important;
+    margin-top: 17vh !important;
     display: flex !important;
     flex-direction: column !important;
     justify-content: center !important;
     padding: 0 24px !important;
   }
   .chamada {
-    text-align: left;
-    font-size: 40px !important;
+    font-size: 43px !important;
     padding: 0 !important;
+    margin: 0 !important;
   }
   .enfase {
-    font-size: 40px !important;
+    font-size: 43px !important;
   }
   .imagem {
     margin: 10px 0 0 0 !important;
-    display: flex;
-    flex-direction: row;
     align-self: center !important;
   }
   .imagem img {
@@ -399,6 +418,27 @@ export default {
   }
   .conteudo-coluna2 {
     margin-top: 5vh !important;
+  }
+  h2 {
+    font-size: 43px !important;
+  }
+  .labelValor {
+    font-size: 20px !important;
+  }
+  .btnsAdicionar {
+    max-width: 550px !important;
+  }
+  .form-control {
+    width: 550px !important;
+    height: 40px !important;
+  }
+  #input1::placeholder,
+  #input2::placeholder,
+  #input3::placeholder {
+    font-size: 20px !important;
+  }
+  .custom-control-label {
+    font-size: 20px !important;
   }
   .conteudo-coluna3 {
     margin-top: 10vh !important;
@@ -412,22 +452,19 @@ export default {
     min-height: 180px !important;
   }
   .conteudo-coluna1 {
-    margin-top: 15vh !important;
+    margin-top: 17vh !important;
     padding: 0 !important;
   }
   .conteudo-coluna2 {
     margin-top: 5vh !important;
     padding: 0 !important;
   }
-  .conteudo-coluna3 {
-    margin-top: 10vh !important;
-  }
   .chamada {
-    font-size: 36px !important;
+    font-size: 38px !important;
     text-align: left !important;
   }
   .enfase {
-    font-size: 36px !important;
+    font-size: 38px !important;
   }
   .imagem {
     margin: 10px 0 0 0 !important;
@@ -440,18 +477,34 @@ export default {
     width: 223px !important;
     height: 193px !important;
   }
+  h2 {
+    font-size: 36px !important;
+    width: 400px !important;
+  }
+  .labelValor {
+    font-size: 20px !important;
+  }
   .adicionar span {
-    font-size: 18px !important;
+    font-size: 30px !important;
   }
   .adicionar {
-    font-size: 18px !important;
-  }
-  h2 {
-    font-size: 32px !important;
-    width: 400px !important;
+    max-width: 150px !important;
+    font-size: 25px !important;
   }
   .form-control {
-    width: 400px !important;
+    width: 500px !important;
+    height: 40px !important;
+  }
+  #input1::placeholder,
+  #input2::placeholder,
+  #input3::placeholder {
+    font-size: 20px !important;
+  }
+  .custom-control-label {
+    font-size: 20px !important;
+  }
+  .conteudo-coluna3 {
+    margin-top: 10vh !important;
   }
   footer {
     margin-top: 5vh;
@@ -473,11 +526,11 @@ export default {
     margin-top: 10vh !important;
   }
   .chamada {
-    font-size: 32px !important;
+    font-size: 34px !important;
     text-align: center !important;
   }
   .enfase {
-    font-size: 32px !important;
+    font-size: 34px !important;
   }
   .imagem {
     margin: 10px 0 0 0 !important;
@@ -490,13 +543,6 @@ export default {
     width: 223px !important;
     height: 193px !important;
   }
-  .adicionar span {
-    font-size: 16px !important;
-  }
-  .adicionar {
-    min-width: 100px !important;
-    font-size: 16px !important;
-  }
   h2 {
     font-size: 32px !important;
     max-width: 100% !important;
@@ -504,6 +550,20 @@ export default {
   }
   .labelValor {
     margin-top: 15px !important;
+  }
+  .btnsAdicionar {
+    flex-direction: column !important;
+    justify-content: space-around !important;
+    align-items: center !important;
+    margin: 10px 0 !important;
+  }
+  .adicionar span {
+    font-size: 28px !important;
+  }
+  .adicionar {
+    height: 80px !important;
+    margin: 10px 0 !important;
+    font-size: 26px !important;
   }
   .form-control {
     margin-top: 20px !important;
@@ -577,7 +637,6 @@ export default {
 }
 .conteudo-coluna2 {
   margin-top: 20vh;
-  margin-right: 20%;
 }
 h2 {
   font-size: 40px;
@@ -623,20 +682,20 @@ span {
   outline: none !important;
 }
 .btnsAdicionar {
+  width: 100%;
   display: flex;
   flex-direction: row;
-  justify-content: left;
-  margin-top: 25px;
-  margin-bottom: 25px;
+  justify-content: space-between;
+  margin: 25px 0;
 }
 .adicionar span {
   font-size: 40px;
   font-weight: 700;
 }
 .adicionar {
-  width: 150px;
+  min-width: 150px;
+  max-width: 200px;
   height: 90px;
-  margin: 0 15px 0 0;
   padding-bottom: 10px;
   border: 2px solid #52595a !important;
   border-radius: 10px;
@@ -715,7 +774,6 @@ span {
 .btn.btn-secondary:focus-visible {
   outline: none;
 }
-
 .simulacao {
   background: transparent;
   height: 150px;
@@ -746,6 +804,7 @@ footer {
   justify-content: center;
 }
 footer p {
+  font-size: 22px;
   width: 100%;
   margin: 0;
 }
