@@ -130,8 +130,10 @@
             </div>
           </div>
         </div>
-        <div class="col-sm-12 col-md-12 col-lg-12 coluna3">
-          <!---v-if="!loading && leadSaved" --->
+        <div
+          v-if="!loading && leadSaved"
+          class="col-sm-12 col-md-12 col-lg-12 coluna3"
+        >
           <div class="conteudo-coluna3 col-12 px-4 py-2">
             <h2>Verifique as condições</h2>
             <div class="formulario formulario2">
