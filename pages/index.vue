@@ -96,6 +96,15 @@
               <b-form-group id="input-group" label-for="input-2">
                 <b-form-input
                   id="input2"
+                  v-model="cpf"
+                  v-mask="'###.###.###-##'"
+                  placeholder="CPF*"
+                  required
+                ></b-form-input>
+              </b-form-group>
+              <b-form-group id="input-group" label-for="input-2">
+                <b-form-input
+                  id="input2"
                   v-model="whatsapp"
                   v-mask="'(##) #####-####'"
                   placeholder="Whatsapp*"
@@ -263,6 +272,14 @@ export default {
         this.$store.commit('updateNome', value)
       },
     },
+    cpf: {
+      get() {
+        return this.$store.state.formData.cpf
+      },
+      set(value) {
+        this.$store.commit('updateCpf', value)
+      },
+    },
     email: {
       get() {
         return this.$store.state.formData.email
@@ -293,6 +310,7 @@ export default {
     isFormValid() {
       const schema = yup.object().shape({
         nome: yup.string().required(),
+        cpf: yup.string().required(),
         email: yup.string().email().required(),
         whatsapp: yup.string().min(15).required(),
         valor: yup.number().required(),
@@ -300,6 +318,7 @@ export default {
 
       return schema.isValidSync({
         nome: this.nome,
+        cpf: this.cpf,
         email: this.email,
         whatsapp: this.whatsapp,
         valor: this.valor,

@@ -1,6 +1,7 @@
 export const state = () => ({
   formData: {
     nome: '',
+    cpf: '',
     email: '',
     whatsapp: '',
     valor: 5000,
@@ -12,6 +13,9 @@ export const state = () => ({
 export const mutations = {
   updateNome(state, value) {
     state.formData.nome = value
+  },
+  updateCpf(state, value) {
+    state.formData.cpf = value
   },
   updateEmail(state, value) {
     state.formData.email = value
@@ -32,6 +36,7 @@ export const mutations = {
 
 export const getters = {
   nome: (state) => state.formData.nome,
+  cpf: (state) => state.formData.cpf,
   email: (state) => state.formData.email,
   whatsapp: (state) => state.formData.whatsapp,
   valor: (state) => state.formData.valor,
