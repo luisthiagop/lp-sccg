@@ -50,7 +50,7 @@ export const actions = {
     try {
       context.commit('changeLoading', true)
       const res = await this.$axios.post(
-        'https://api.simulacaoconsignado.com.br/wp-json/api/lead',
+        'https://157.245.216.29:1337/leads',
         context.getters.formData
       )
       console.log(res)

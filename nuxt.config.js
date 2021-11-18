@@ -92,7 +92,7 @@ export default {
 
   proxy: {
     '/api': {
-      target: 'https://api.simulacaoconsignado.com.br/wp-json/api',
+      target: 'https://157.245.216.29:1337/',
     },
   },
 
